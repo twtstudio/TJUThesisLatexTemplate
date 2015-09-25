@@ -1,0 +1,51 @@
+% !Mode:: "TeX:UTF-8"
+%  Authors: 张井   Jing Zhang: prayever@gmail.com     天津大学2010级管理与经济学部信息管理与信息系统专业硕士生
+%           余蓝涛 Lantao Yu: lantaoyu1991@gmail.com  天津大学2008级精密仪器与光电子工程学院测控技术与仪器专业本科生
+
+%%%%%%%%%% Package %%%%%%%%%%%%
+\usepackage{graphicx}                       % 支持插图处理
+%\usepackage[a4paper,text={150true mm,224true mm},top=35.5true mm,left=30true mm,head=5true mm,headsep=2.5true mm,foot=8.5true mm]{geometry}
+\usepackage[a4paper,text={153true mm,243true mm},top= 25true mm,left=31.8 true mm,head=6true mm,headsep=6true mm,foot=16.5true mm]{geometry}
+
+                                            % 支持版面尺寸设置
+\usepackage{titlesec}                       % 控制标题的宏包
+\usepackage{titletoc}                       % 控制目录的宏包
+\usepackage{fancyhdr}                       % fancyhdr宏包 支持页眉和页脚的相关定义
+\usepackage[UTF8]{ctex}                     % 支持中文显示
+\usepackage{color}                          % 支持彩色
+\usepackage{amsmath}                        % AMSLaTeX宏包 用来排出更加漂亮的公式
+\usepackage{amssymb}                        % 数学符号生成命令
+\usepackage[below]{placeins}                %允许上一个section的浮动图形出现在下一个section的开始部分,还提供\FloatBarrier命令,使所有未处理的浮动图形立即被处理
+\usepackage{flafter}                        % 使得所有浮动体不能被放置在其浮动环境之前，以免浮动体在引述它的文本之前出现.
+\usepackage{multirow}                       % 使用Multirow宏包，使得表格可以合并多个row格
+\usepackage{booktabs}                       % 表格，横的粗线；\specialrule{1pt}{0pt}{0pt}
+\usepackage{longtable}                      % 支持跨页的表格。
+\usepackage{tabularx}                       % 自动设置表格的列宽
+\usepackage{subfigure}                      % 支持子图 %centerlast 设置最后一行是否居中
+\usepackage[subfigure]{ccaption}            % 支持子图的中文标题
+\usepackage[sort&compress,numbers]{natbib}  % 支持引用缩写的宏包
+\usepackage{enumitem}                       % 使用enumitem宏包,改变列表项的格式
+\usepackage{calc}                           % 长度可以用+ - * / 进行计算
+\usepackage{txfonts}                        % 字体宏包
+\usepackage{bm}                             % 处理数学公式中的黑斜体的宏包
+\usepackage[amsmath,thmmarks,hyperref]{ntheorem}  % 定理类环境宏包，其中 amsmath 选项用来兼容 AMS LaTeX 的宏包
+\usepackage{CJKnumb}                        % 提供将阿拉伯数字转换成中文数字的命令
+\usepackage{indentfirst}                    % 首行缩进宏包
+\usepackage{CJKutf8}                        % 用在UTF8编码环境下，它可以自动调用CJK，同时针对UTF8编码作了设置。
+%\usepackage{hypbmsec}                      % 用来控制书签中标题显示内容
+
+%如果您的pdf制作中文书签有乱码使用如下命令，就可以解决了
+\usepackage[dvipdfm, unicode,               % pdflatex, pdftex 这里决定运行文件的方式不同
+            pdfstartview=FitH,
+            %CJKbookmarks=true,
+            bookmarksnumbered=true,
+            bookmarksopen=true,
+            colorlinks=false,
+            pdfborder={0 0 1},
+            citecolor=blue,
+            linkcolor=red,
+            anchorcolor=green,
+            urlcolor=blue,
+            breaklinks=true
+            ]{hyperref}
+

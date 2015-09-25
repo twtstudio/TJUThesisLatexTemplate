@@ -1,0 +1,42 @@
+% !Mode:: "TeX:UTF-8"
+\def\usewhat{dvipdfmx}                              % 定义编译方式 dvipdfmx 或者 pdflatex ，默认为 dvipdfmx
+                                                    % 方式编译，如果需要修改，只需改变花括号中的内容即可。
+\documentclass[12pt,openany,oneside]{book}
+                                           % 如果论文超过60页 可以使用twoside 双面打印
+\input{setup/package}                      % 定义本文所使用宏包
+\graphicspath{{figures/}}                  % 定义所有的.eps文件在figures子目录下
+\begin{document}                           % 开始全文
+\begin{CJK*}{UTF8}{song}                   % 开始中文字体使用
+\input{setup/format}                       % 完成对论文各个部分格式的设置
+\frontmatter                               % 以下是论文导言部分，包括论文的封面，中英文摘要和中文目录
+\input{preface/cover}                      % 封面
+
+%%%%%%%%%%   目录   %%%%%%%%%%
+\defaultfont
+\clearpage{\pagestyle{empty}\cleardoublepage}
+\addcontentsline{toc}{chapter}{目~~~~录}
+\tableofcontents                           % 中文目录
+
+%%%%%%%%%% 正文部分内容  %%%%%%%%%%
+\mainmatter\defaultfont\sloppy\raggedbottom
+\include{body/intros}
+\include{body/figures}
+\include{body/tables}
+\include{body/equations}
+\include{body/others}
+\include{body/conclusion}
+%%%%%%%%%% 正文部分内容  %%%%%%%%%%
+
+%%%%%%%%%%  参考文献  %%%%%%%%%%
+\defaultfont
+\bibliographystyle{TJUThesis}
+\phantomsection
+\markboth{参考文献}{参考文献}
+\addcontentsline{toc}{chapter}{参考文献}          % 参考文献加入到中文目录
+\nocite{*}                                        % 若将此命令屏蔽掉，则未引用的文献不会出现在文后的参考文献中。
+\bibliography{references/reference}
+\include{appendix/publications}                   % 发表论文和参加科研情况说明
+\include{appendix/acknowledgements}               % 致谢
+\clearpage
+\end{CJK*}                                        % 结束中文字体使用
+\end{document}                                    % 结束全文

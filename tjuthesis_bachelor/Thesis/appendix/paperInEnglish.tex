@@ -1,0 +1,14 @@
+% !Mode:: "TeX:UTF-8"
+
+\titlecontents{chapter}[2em]{\vspace{.5\baselineskip}\xiaosan\song}%
+             {\prechaptername\CJKnumber{\thecontentslabel}\postchaptername\qquad}{} %
+             {}             % 设置该选项为空是为了不让目录中显示页码
+\markboth{外文资料}{外文资料}
+\addcontentsline{toc}{chapter}{外文资料}
+%\setcounter{page}{1}       % 如果需要从该页开始从 1 开始编页，则取消该注释
+\chapter*{外文资料}
+
+Here follows the English paper.
+
+...
+\thispagestyle{empty}

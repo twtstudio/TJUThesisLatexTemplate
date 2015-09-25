@@ -1,0 +1,275 @@
+% !Mode:: "TeX:UTF-8"
+
+\chapter{模板介绍与注意事项}
+\section{模板说明}
+
+TJUThesis~是为了帮助天津大学毕业生撰写毕业论文而编写的~\LaTeX~论文模板，其前提是用户已经能处理一般的~\LaTeX~文档，并对~BibTeX~有一定了解，如果你从来没有接触过~\LaTeX~，建议先学习相关基础知识，磨刀不误砍柴工，能有助你更好使用模板。
+
+由于个人水平有限，虽然现在的这个版本基本上满足了学校的要求，但难免存在不足之处，欢迎大家积极反馈，更希望天津大学~\LaTeX~爱好者能一同完善此模板，让更多同学受益。
+
+如有模板的疑问或有意向加入模板的维护和编写队伍中来，请给作者: prayever@gmail.com(张井)，lantaoyu1991@gmail.com(余蓝涛)写信。
+
+\section{下载安装}
+TJUThesis~主页：~\url{http://tjuthesis.googlecode.com/}。除此之外，不再维护任何镜像。
+
+\section{目录内容}
+本~\LaTeX{}~模板的源文件即为博士学位论文中使用的模板，用户可以通过修改这些文件来编辑自己的毕业论文。
+\begin{itemize}
+\item{tjumain.tex}：主文件，包含封面部分和其他章节的引用信息。
+\item{preface}: 包含本科毕业设计论文的封面和中英文摘要。
+\item{body}: 包含本文正文中的所有章节。
+\begin{itemize}
+\item{intros.tex}: 包括本~\LaTeX{}~模板的介绍，编译方法和使用方法。
+\item{figures.tex}: 包含论文中图片的插入和引用方法。
+\item{tables.tex}: 包含论文中表格的插入和引用方法。
+\item{equations.tex}: 包含论文中数学符号、公式的书写和排版方法。
+\item{others.tex}: 包含论文中使用的罗列环境，定理环境等其他环境的排版方法。
+\item{conclusion.tex}: 包含本文的总结。
+\end{itemize}
+\item{setup}：存放论文所使用的宏包和全文格式的定义。
+\item{appendix}：存放作者的发表论文和参加科研情况说明以及致谢文件。
+\item{references/reference.bib}：存放论文所引用的全部参考文献信息。
+\item{clean.bat}：双击此文件，可以用来清理~tjumain.tex~在编译之后生成的所有附属文件，如后缀名为~.aux~,~.log~,~.bak~的文件。
+\end{itemize}
+
+需要说明的是，以上文件名并不是固定的，各位同学可以新建一个~tex~文件，例如~algorithm.tex，放在~body~目录下，并且在~tjumain.tex~中调用:
+\begin{verbatim}
+    \include{body/algorithm.tex}
+\end{verbatim}
+来引用之。当然你也可以重命名这些文件，只要~include~中的文件名是存在且合法，~\LaTeX~总能找到这些文件的。
+
+在你写作某一章节的时候，你可能需要随时预览排版效果并~Debug，这时你可以在其他章节的\verb|\include|命令前加上一个\%，这代表注释掉本行，例如：
+\begin{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+           正文部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
+\include{body/intros}
+%%\include{body/figures}
+%%\include{body/tables}
+%%\include{body/equations}
+%%\include{body/others}
+%%\include{body/conclusion}
+\end{verbatim}
+那么，编译的时候就只编译未加~\%~的一章，在这个例子中，即本章~intros。
+
+理论上，并不一定要把每章放在不同的文件中。但是这种自顶向下，分章节写作、编译的方法有利于提高效率，大大减少~Debug~过程中的编译时间，同时减小风险。
+
+\section{博士与硕士学位论文格式差异}
+\begin{enumerate}
+  \item 在封面中，博士学位论文比硕士学位论文多一行“一级学科”信息。
+  \item 博士学位论文通常设置为双面打印，在~tjumain.tex~中设置~book~选项为~twoside~。
+  \item 博士学位论文因为双面打印，所以开章都要从奇数页开始，在~tjumain.tex~中设置~book~选项为~openright~。
+  \item 博士学位论文中，倘若一章结束后有空白页，则清空页眉页脚，在~format.tex~中已经重新定义~cleardoulepage~命令。
+\end{enumerate}
+
+\section{参考文献生成方法}
+
+\LaTeX~具有插入参考文献的能力。Google Scholar~网站上存在兼容~BibTeX~的参考文献信息，通过以下几个步骤，可以轻松完成参考文献的生成。
+\begin{itemize}
+  \item 在\href{http://scholar.google.com/}{谷歌学术搜索}中，
+        点击\href{http://scholar.google.com/scholar_preferences?hl=en&as_sdt=0,5}{学术搜索设置}。
+  \item 页面打开之后，在\textbf{文献管理软件}选项中选择\textbf{显示导入~BibTeX~的链接}，单击保存设置，退出。
+  \item 在谷歌学术搜索中检索到文献后，在文献条目区域单击导入~BibTeX~选项，页面中出现文献的引用信息。
+  \item 将文献引用信息的内容复制之后，添加到~references~文件夹下的~reference.bib~中。
+\end{itemize}
+
+\section{编译注意事项}
+\begin{enumerate}
+  \item 由于模板使用~UTF-8~编码，所以源文件应该保存成~UTF-8~格式，否则可能出现中文字符无法识别的错误。
+  本模板中每一个~.tex~文件的文件的开头已经加上一行：\\
+    \verb|% !Mode:: "TeX:UTF-8"|\\
+     这样可以确保~.tex~文件默认使用~UTF-8~的格式打开。读者如果删去此行，很有可能会导致中文字符显示乱码。
+     在~WinEdt~编辑器中可以使用以下两种方式保存成~UTF-8~格式：
+      \begin{enumerate}
+        \item 先建立~.tex~文件，另存为~.tex~文件时，选择用~UTF-8~格式保存。
+        \item
+            在~WinEdt~编辑器中，选择\\
+            \mbox{~Document$\to$Document Settings$\to$Document Mode $\to$TeX:UTF-8} 同时在~WinEdt~最下面的状态栏中，可以看到该文档是~TeX~格式还是~TeX:UTF-8~格式。
+            当文档为~TeX:UTF-8~格式时，状态栏一般显示：
+            \makebox[\textwidth][l]{Wrap | Indent | INS | LINE |Spell | TeX:UTF-8 | -src~等。}
+      \end{enumerate}
+  \item 如果在pdf书签中，中文显示乱码的话，则注意以下说明：
+    \begin{verbatim}
+        \usepackage{CJKutf8}
+        % 1. 如果使用CJKutf8
+        %    Hyperref中应使用unicode参数
+        % 2. 如果使用CJK
+        %    Hyperref则使用CJKbookmarks参数
+        %    可惜得到的PDF书签是乱码，建议弃用
+        % 3. Unicode选项和CJKbookmarks不能同时使用
+        \usepackage[
+        %CJKbookmarks=true,
+        unicode=true
+        ]{hyperref}
+     \end{verbatim}
+       \item 建议采用以下两种编译方式：
+  \begin{enumerate}
+     \item latex + bibtex + latex + latex + dvi2pdf. 在这种编译情况下，对应的~tjumain.tex~文件的第一行是\verb|\def\usewhat{dvipdfmx}|~（缺省设置）。 此时，所有图片文件应该保存为~.eps~格式，如~figures~文件夹里~.eps~图片。
+          如果您选择在命令行中操作，可以在编译的时候依次输入~latex tjumain, bibtex tjumain, latex tjumain, latex tjumain~和~dvipdfmx tjumain， 编译完成之后，需要手动打开~pdf~文件。
+     \item pdflatex + pdflatex. 在这种编译情况下，对应的~tjumain.tex~文件的第一行应该改为\verb|\def\usewhat{pdflatex}|~。 此时， 编译不支持~.eps~图片格式，此时需要在命令行下使用~epstopdf~指令将~figures~文件夹下 的~.eps~文件转化成~.pdf~文件格式，命令行中操作格式为~epstopdf a.eps~。
+          在命令行编译的时候，依次输入~pdflatex tjumain~和~pdflatex tjumain， 编译完成之后，需要手动打开~pdf~文件。
+  \end{enumerate}
+\end{enumerate}
+
+\section{系统要求}
+     CTEX 2.8, MiKTeX 2.8, TeX Live 2009~或以上版本。使用推荐的~WinEdt 6.0~编辑器，可以完成文件的编辑和编译工作。
+
+\section{\TeX~简介}
+
+以下内容是~milksea@bbs.ctex.org~撰写的关于~\TeX~的简单介绍，略有改动。
+注意这不是一个入门教程，不讲~\TeX~系统的配置安装，也不讲具体的~\LaTeX~代码。
+这里仅仅试图以一些只言片语来解释：
+进入这个门槛之前新手应该知道的注意事项，以及遇到问题以后该去如何解决问题。
+
+\subsection{什么是 \TeX/\LaTeX，我是否应该选择它~？}
+
+\TeX~是最早由高德纳（Donald Knuth）教授创建的一门标记式宏语言，
+用来排版科技文章，尤其擅长处理复杂的数学公式。\TeX~同时也是处理这一语言的排版软件。
+\LaTeX~是 Leslie Lamport 在~\TeX~基础上按内容/格式分离和模块化等思想建立的一集~\TeX~上的格式。
+
+\TeX~本身的领域是专业排版领域
+但现在~TeX/LaTeX~也被广泛用于生成电子文档甚至幻灯片等，~\TeX~语言的数学部分
+偶尔也在其他一些地方使用。但注意~\TeX~并不适用于文书处理（Microsoft Office 的领域，以前和现在都不是）。
+
+选择使用~\TeX/\LaTeX~的理由包括：
+\begin{itemize}
+\item 免费软件；
+\item 专业的排版效果；
+\item 是事实上的专业数学排版标准；
+\item 广泛的西文期刊接收甚或只接收 LaTeX 格式的投稿；
+\item[] ……
+\end{itemize}
+不选择使用~\TeX/\LaTeX~的理由包括：
+\begin{itemize}
+\item 需要相当精力学习；
+\item 图文混合排版能力不够强；
+\item 仅在数学、物理、计算机等领域流行；
+\item 中文期刊的支持较差；
+\item[] ……
+\end{itemize}
+
+请尽量清醒看待网上经常见到的关于~\TeX~与其他软件的优劣比较和口水战。在选择使用或离开之前，请先考虑
+\TeX~的应用领域，想想它是否适合你的需要。
+
+
+\subsection{我该用什么编辑器~？}
+
+编辑器功能有简有繁，特色不一，从简单的纯文本编辑器到繁复的 Emacs，因人而易。基本功能有语法高亮、方便编译预览就很好了，扩充功能和定制有无限的可能。初学者可以使用功能简单、使用方便的专用编辑器，如 ~TeXWorks、Kile、WinEdt~等，或者类似所见即所得功能的~LyX；熟悉的人可以使用定制性更强的~Notepad++、SciTE、Vim、Emacs ~等。这方面的介绍很多，一开始不妨多试几种，找到最适合自己的才是最好的。
+
+另外提醒一句，编辑器只是工作的助手，不必把它看得太重。
+
+\subsection{我应该看什么~\LaTeX~读物~？}
+
+这不是一个容易回答的问题，因为有许多选择，也同样有许多不合适的选择。
+这里只是选出一个比较好的答案。更多更详细的介绍可以在版面和网上寻找（注意时效）。
+
+近两年~\TeX~的中文处理发展很快，目前没有哪本书在中文处理方面给出一个最新进展的合适综述，
+因而下面的介绍也不主要考虑中文处理。
+
+\begin{enumerate}
+
+\item 我能阅读英文。
+\begin{enumerate}
+\item 迅速入门：ltxprimer.pdf (LaTeX Tutorials: A Primer, India TUG)
+\item 系统学习：A Guide to LaTeX, 4th Edition, Addison-Wesley
+               有机械工业出版社的影印版（《\LaTeX{}~实用教程》）
+\item 深入学习：要读许多书和文档，TeXbook 是必读的
+\item 细节学习：去读你使用的每一个宏包的说明文档
+\item 专题学习：阅读讲数学公式、图形、表格、字体等的专题文档
+\end{enumerate}
+
+\item 我更愿意阅读中文。
+\begin{enumerate}
+\item 迅速入门：lnotes.pdf (LaTeX Notes, 1.20, Alpha Huang)
+\item 系统学习：《\LaTeXe{}~科技排版指南》，邓建松（电子版）
+      如果不好找，可以阅读《\LaTeXe~入门与提高》第二版，陈志杰等，或者 《\LaTeXe~完全学习手册》，胡伟
+\item 深入学习：~TeXbook0.pdf~(特可爱原本，TeXbook 的中译，xianxian)
+\item 具体问题释疑：~CTeX-FAQ.pdf~，\\
+        吴凌云，~\url{http://www.ctex.org/CTeXFAQ}~
+\end{enumerate}
+\end{enumerate}
+
+遇见问题和解决问题的过程可以快速提高自己的技能，建议此时：
+\begin{itemize}
+  \item 利用~Google~搜索。
+  \item 清楚，扼要地提出你的问题。
+\end{itemize}
+
+\subsection{什么知识会过时~？什么不会~？}
+
+\TeX~是排版语言，也是广泛使用的软件，并且不断在发展中；
+因此，总有一些东西会很快过时。作为学习~\TeX~的人，
+免不了要看各种各样的书籍、电子文档和网络论坛上的只言片语，
+因此了解什么知识会迅速过时，什么知识不会是十分重要的。
+
+最稳定的是关于~Primitive \TeX~和~Plain \TeX~的知识，也就是 Knuth
+在他的《The TeXbook》中介绍的内容。因为~\TeX~
+系统开发的初衷就是稳定性，要求今天的文档到很久以后仍可以得到完全相同的结果，
+因此 Knuth 限定了他的~\TeX~语言和相关实现的命令、语法。这些内容许多年来就没有多少变化，
+在未来的一些年里也不会有什么变化。
+Primitive \TeX~和 Plain \TeX~的知识主要包括 \TeX~排版的基本算法和原理，
+盒子的原理，底层的 \TeX~命令等。其中技巧性的东西大多在宏包设计中，
+初学者一般不会接触到很多；而基本原理则是常常被提到的，
+譬如，~\TeX~把一切排版内容作为盒子（box）处理。
+
+相对稳定的是关于基本~\LaTeXe~
+的知识，也包括围绕~\LaTeXe~的一些核心宏包的知识。~\LaTeXe~
+是自~1993~年以来的一个稳定的~\LaTeX~版本，直到最近的一次修订
+（2005 年）都没有大的变动。
+\LaTeX~的下一个计划中的版本~\LaTeX 3~遥遥无期，在可预见的将来，~\LaTeXe~不会过时。
+\LaTeXe~的知识是目前大部分~\LaTeX~书籍的主体内容。关于~\LaTeX~的标准文档类
+~（article、report、book、letter、slide~等），关于基本数学公式的输入，
+文档的章节层次，表格和矩阵，图表浮动体，LR 盒子与段落盒子……
+这些~\LaTeX~的核心内容都是最常用的，相对稳定的。
+与~\LaTeXe~相匹配的核心宏包，
+如~graphics(x)、ifthen、fontenc、doc~等，也同样是相对稳定的。
+还有一些被非常广泛应用的宏包，如~amsmath~系列，也可以看作是相对稳定的。
+
+简单地说，关于基本~\TeX/\LaTeX~的语言，都是比较稳定的。与之对应，实现或者支持~\TeX/\LaTeX~语言的软件，
+包括在~\TeX/\LaTeX~基础上建立的新的宏，都不大稳定。
+
+容易过时的是关于第三方~\LaTeX~宏包的知识、第三方~\TeX~工具的知识，以及新兴~\TeX~相关软件的知识等。
+~\TeX~和~\LaTeX~语言是追求稳定的；但无论是宏包还是工具，作为不断更新软件，它们是不稳定的。
+容易过时的技术很多，而且现在广泛地出现在几乎所有~\LaTeX~文档之中，因此需要特别引起注意：
+宏包的过时的原因可能是宏包本身的升级换代带来了新功能或不兼容，
+也可能是同一功能的更新更好的宏包代替了旧的宏包。前者的典型例子比如绘图宏包~PGF/TikZ~，
+现在的~2.00~版功能十分强大，和旧的~1.1x~版相差很大，和更旧的~0.x~版本则几乎完全不同；后
+者的典型例子比如~caption~宏包先是被更新的~caption2~宏包代替，后来~caption~宏包更新又使得
+caption2 宏包完全过时。——安装更新的发行版可以避免使用过旧的宏包；
+认真阅读宏包自带的文档而不是搜索得到的陈旧片断可以避免采用过时的代码。
+
+工具过时的主要原因也是升级换代和被其他工具替换。前者的典型例子是编辑器
+WinEdt~在~5.5~以后的版本支持~UTF-8~编码，而旧版本不支持；
+后者的典型例子是中文字体安装工具从~GBKFonts~到~xGBKFonts~到~FontsGen~不断被取代。
+图形插入是一个在~\TeX~实现、宏包与外围工具方面都更新很快的东西。
+在过去，最常用的输出格式是~PS(PostScript)~格式，因此插入的图像以~EPS~为主流。
+使用~Dvips~为主要输出工具，外围工具有~GhostScript、bmeps~等等，相关宏包有~graphics~等，
+相关文档如《\LaTeXe{}~ 插图指南》。
+
+但凡提及“~\LaTeX~只支持~EPS~图形”的，就是这个过时的时代的产物。事实上~\TeX/\LaTeX~
+并不限定任何图形格式，只不过是当时的输出格式（PS）和工具（Dvips）对~EPS~情有独钟而已。
+后来 PDF 格式成为主流。~pdf\TeX、DVIPDFM、DVIPDFMx、XeTeX~工具则主要支持~PDF、PNG、JPG~格式的图形，
+涉及一系列工具如~ImageMagick、ebb~等。
+
+值得特别提出注意的就是，中文处理也一起是更新迅速、容易过时的部分。
+而且因为中文处理一直没有一个“官方”的“标准”做法，软件、工具、
+文档以及网上纷繁的笔记也就显得相当混乱。从八十年代开始的~CCT~系统、
+天元系统，到后来的~CJK~方式，到近来的~XeTeX~和~LuaTeX~ 方式，
+中文处理的原理、软件、宏包、配置方式等都在不断变化中。
+
+\section{后期工作}
+下表记录了~TJUThesis~计划中未来应该逐步实现的功能和特性：
+\begin{enumerate}
+  \item 编写更为详细的~TJUThesis~的使用手册和~FAQ~用户指南
+  \item 加入对课程结课论文的支持
+  \item 加入对天津大学学生经常参加的各种限时完成重大赛事的论文模板的支持，如全国研究生数学建模竞赛，以节省排版时间
+  \item 加入对~pdf~书签中章节中文编号的支持，如: 第一章 XXX
+  \item 加入对附录~A~等格式的支持
+  \item Linux~平台迁移和测试
+\end{enumerate}
+
+\section{免责声明}
+
+本模板依据《天津大学关于博士、硕士学位论文统一格式的规定》编写，
+适用于博士生的学位论文编写。然而，作者不保证本模板完全符合学校要求，也不对由此带来的风险和损失承担任何责任。

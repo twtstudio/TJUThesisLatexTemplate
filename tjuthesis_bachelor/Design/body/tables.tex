@@ -1,0 +1,291 @@
+% !Mode:: "TeX:UTF-8"
+
+\chapter{表格的绘制方法}
+
+\section{本科生毕业论文的绘表规范}
+
+表应有自明性。表格不加左、右边线。表的编排建议采用国际通行的三线表。表内中文书写使用宋体五号字。
+
+每个表格之上均应有表题（由表序和表名组成）。表序一般按章编排，如第~1~章第一个插表的序号为“表~1-1”等。表序与表名之间空两格，
+表名使用中文五号字，居中。表名中不允许使用标点符号，表名后不加标点。
+表头设计应简单明了，尽量不用斜线。表头中可采用化学，物理量等专业符号。
+
+全表如用同一单位，则将单位符号移至表头右上角，加圆括号。
+表中数据应准确无误，书写清楚。数字空缺的格内加横线“－”（占~2~个数字宽度）。表内文字或数字上、下或左、右相同时，
+采用通栏处理方式，不允许用“〃”、“同上”之类的写法。
+
+表内文字使用宋体五号字，垂直居中书写，起行空一格、转行顶格、句末不加标点。
+如某个表需要转页接排，在随后的各页上应重复表的编号。编号后加“（续表）”，表题可省略。续表应重复表头。
+表格绘制完成之后，与正文空一行。
+
+\section{普通表格的绘制方法}
+
+表格应具有三线表格式，因此需要调用~booktabs~宏包，其标准格式如表~\ref{tab:table1}~所示。
+\begin{table}[htbp]
+\caption{符合本科生毕业论文绘图规范的表格}\label{tab:table1}
+\vspace{0.5em}\centering\wuhao
+\begin{tabular}{ccccc}
+\toprule[1.5pt]
+$D$(in) & $P_u$(lbs) & $u_u$(in) & $\beta$ & $G_f$(psi.in)\\
+\midrule[1pt]
+ 5 & 269.8 & 0.000674 & 1.79 & 0.04089\\
+10 & 421.0 & 0.001035 & 3.59 & 0.04089\\
+20 & 640.2 & 0.001565 & 7.18 & 0.04089\\
+ 5 & 269.8 & 0.000674 & 1.79 & 0.04089\\
+10 & 421.0 & 0.001035 & 3.59 & 0.04089\\
+20 & 640.2 & 0.001565 & 7.18 & 0.04089\\
+ 5 & 269.8 & 0.000674 & 1.79 & 0.04089\\
+10 & 421.0 & 0.001035 & 3.59 & 0.04089\\
+20 & 640.2 & 0.001565 & 7.18 & 0.04089\\
+ 5 & 269.8 & 0.000674 & 1.79 & 0.04089\\
+10 & 421.0 & 0.001035 & 3.59 & 0.04089\\
+20 & 640.2 & 0.001565 & 7.18 & 0.04089\\
+\bottomrule[1.5pt]
+\end{tabular}
+\vspace{\baselineskip}
+\end{table}
+
+其绘制表格的代码及其说明如下。
+\vspace{1em}\noindent\hrule
+
+\begin{verbatim}
+\begin{table}[htbp]
+\caption{表标题}\label{标签名(通常为 tab:tablename)}
+\vspace{0.5em}\centering\wuhao
+\begin{tabular}{cc...c}
+\toprule[1.5pt]
+表头第1个格   & 表头第2个格   & ... & 表头第n个格  \\
+\midrule[1pt]
+表中数据(1,1) & 表中数据(1,2) & ... & 表中数据(1,n)\\
+表中数据(2,1) & 表中数据(2,2) & ... & 表中数据(2,n)\\
+表中数据(3,1) & 表中数据(3,2) & ... & 表中数据(3,n)\\
+表中数据(4,1) & 表中数据(4,2) & ... & 表中数据(4,n)\\
+...................................................\\
+表中数据(m,1) & 表中数据(m,2) & ... & 表中数据(m,n)\\
+\bottomrule[1.5pt]
+\end{tabular}
+\vspace{\baselineskip}
+\end{table}
+\end{verbatim}
+
+\noindent\hrule
+
+\begin{verbatim}
+table环境是一个将表格嵌入文本的浮动环境。
+\wuhao命令将表格的字号设置为五号字（10.5pt），在绘制表格结束退出时，不需要将字号再改回为\xiaosi，正文字号默认为小四号字（12pt）。
+tabular环境的必选参数由每列对应一个格式字符所组成：c表示居中，l表示左对齐，r表示右对齐，其总个数应与表的列数相同。此外，@{文本}可以出现在任意两个上述的列格式之间，其中的文本将被插入每一行的同一位置。表格的各行以\\分隔，同一行的各列则以&分隔。
+\toprule、\midrule和\bottomrule三个命令是由booktabs宏包提供的，其中\toprule和\bottomrule分别用来绘制表格的第一条（表格最顶部）和第三条（表格最底部）水平线，\midrule用来绘制第二条（表头之下）水平线，且第一条和第三条水平线的线宽为1.5pt，第二条水平线的线宽为1pt。
+引用方法：“如表~\ref{tab:tablename}~所示”。
+\end{verbatim}
+
+\noindent\hrule
+
+\section{长表格的绘制方法}
+
+长表格是当表格在当前页排不下而需要转页接排的情况下所采用的一种表格环境。若长表格仍按照普通表格的绘制方法来获得，
+其所使用的~\verb|table|~浮动环境无法实现表格的换页接排功能，表格下方过长部分会排在表格第~1~页的页脚以下。为了能够实现长表格的转页接排功能，
+需要调用~\verb|longtable|~宏包，由于长表格是跨页的文本内容，因此只需要单独的~\verb|longtable|~环境，所绘制的长表格的格式如表~\ref{tab:table2}~所示。
+
+此长表格~\ref{tab:table2}~第~2~页的标题“编号（续表）”和表头是通过代码自动添加上去的，无需人工添加，若表格在页面中的竖直位置发生了变化，长表格在第~2~页
+及之后各页的标题和表头位置能够始终处于各页的最顶部，也无需人工调整，\LaTeX~系统的这一优点是~Word~等软件所无法企及的。
+
+下段内容是为了让下面的长表格分居两页，看到表标题“编号(续表)”的效果。此模板的完成时间正值雨后初霁的四月二十五日，故引用林徽因《你是人间的四月天》全文：
+\begin{center}
+\begin{minipage}[c]{0.5\textwidth}
+
+\textbf{你是人间的四月天}
+
+\vspace{12pt}
+我说你是人间的四月天\\
+笑音点亮了四面风\\
+轻灵在春的光艳中交舞着变\\
+你是四月早天里的云烟\\
+黄昏吹着风的软\\
+星子在无意中闪\\
+细雨点洒在花前\\
+那轻~~那娉婷\\
+你是鲜妍\\
+百花的冠冕你戴着\\
+你是天真~~庄严~~你是夜夜的月圆\\
+雪化后那片鹅黄\\
+你像~~新鲜初放芽的绿\\
+你是柔嫩喜悦\\
+水光浮动着你梦期待中白莲\\
+你是一树一树的花开\\
+是燕~~在梁间呢喃\\
+你是爱~~是暖\\
+是希望\\
+你是人间的四月天
+\end{minipage}
+\end{center}
+
+					
+\wuhao\begin{longtable}{ccc}
+\caption{天津大学各学院名称一览}\label{tab:table2}
+ \vspace{0.5em}\\
+\toprule[1.5pt] 学院名称 & 网址 & 联系电话  \\ \midrule[1pt]
+\endfirsthead
+\multicolumn{3}{c}{表~\thetable（续表）}\vspace{0.5em}\\
+\toprule[1.5pt] 学院名称 & 网址 & 联系电话  \\ \midrule[1pt]
+\endhead
+\bottomrule[1.5pt]
+\endfoot
+机械工程学院& \url{http://tdjxxy.tju.edu.cn/}& 87401979\\
+精密仪器与光电子工程学院&  \url{http://www2.tju.edu.cn/colleges/precision/cn/}& 27404775\\
+电子信息工程学院& \url{http://www.tju.edu.cn/seie}& 27406956\\
+电气与自动化工程学院& \url{http://www2.tju.edu.cn/colleges/automate/}& 27405477\\
+建筑工程学院& \url{http://www2.tju.edu.cn/colleges/civil/}& 27404072\\
+化工学院& \url{http://chemeng.tju.edu.cn/}& 27403389\\
+材料科学与工程学院& \url{http://mse.tju.edu.cn}& 27406693 \\
+建筑学院& \url{http://hgw022072.chinaw3.com/}& 27402724-2111\\
+求是学部\\
+管理与经济学部&	\url{ http://sm.tju.edu.cn}& 27403423\\
+理学院& \url{ http://www.tju.edu.cn/science/}& 27404118\\
+文法学院& \url{ http://www2.tju.edu.cn/colleges/sociology/new/}& 27403691\\
+软件学院& \url{http://scs.tju.edu.cn}& 87401540\\
+计算机科学与技术学院& \url{http://cs.tju.edu.cn/}& 27406538\\
+马克思主义学院& \url{http://www2.tju.edu.cn/colleges/marxism/}& 27405348\\
+环境科学与工程学院& \url{http://www.tju.edu.cn/see}& 87402072\\
+药物科学与技术学院& \url{http://www2.tju.edu.cn/colleges/pharmtier/}& 87401830\\
+教育学院& \url{http://soe.tju.edu.cn/}& 27401028\\
+职业技术教育学院& \url{http://202.113.0.248:8888}\\
+继续教育学院& \url{http://aectu.tju.edu.cn/}& 27406298\\
+仁爱学院& \url{http://www.tjrac.edu.cn/}& 68579990\\
+农业与生物工程学院& \url{http://202.113.13.169/site/nongxueyuan/}& 87402171\\
+国际教育学院 & \url{http://www.ietju.com/}& 27406147\\
+网络教育学院 & \url{http://www.etju.com/}& 27426952 \\
+
+\end{longtable}\xiaosi
+\vspace{\baselineskip}
+
+绘制长表格的代码及其说明如下。
+\vspace{1em}\noindent\hrule
+
+\begin{verbatim}
+\wuhao\begin{longtable}{cc...c}
+\caption{表标题}\label{标签名(通常为 tab:tablename)}\\
+\toprule[1.5pt] 表头第1个格 & 表头第2个格 & ... & 表头第n个格\\ \midrule[1pt]
+\endfirsthead
+\multicolumn{n}{c}{表~\thetable（续表）}\vspace{0.5em}\\
+\toprule[1.5pt] 表头第1个格 & 表头第2个格 & ... & 表头第n个格\\ \midrule[1pt]
+\endhead
+\bottomrule[1.5pt]
+\endfoot
+表中数据(1,1) & 表中数据(1,2) & ... & 表中数据(1,n)\\
+表中数据(2,1) & 表中数据(2,2) & ... & 表中数据(2,n)\\
+...................................................\\
+表中数据(m,1) & 表中数据(m,2) & ... & 表中数据(m,n)\\
+\end{longtable}\xiaosi
+\end{verbatim}
+
+\noindent\hrule
+\begin{verbatim}
+在绘制长表格的前面留出一个空白行，并在第2行的一开始全局定义长表格的字号为五号字，这样能够保证长表格之前段落的行距保持不变。
+在绘制长表格结束后，需要\xiaosi命令重新将字号改为小四号字。
+\endhead之前的文字描述的是第2页及其之后各页的标题或表头；
+\endfirsthead之前的文字描述的是第1页的标题和表头，若无此命令，则第1页的表头和标题由\endhead命令确定；
+同理，\endfoot之前的文字描述的是除最后一页之外每页的表格底部内容；
+\endlastfoot之前的文字描述的是最后一页的表格底部内容，若无此命令，
+则最后一页的表格底部内容由\endfoot命令确定；由于规范中长表格每页底部内容均相同（水平粗线），因此模板中没有用到\endlastfoot命令。
+\end{verbatim}
+
+\noindent\hrule
+\section{列宽可调表格的绘制方法}
+论文中能用到列宽可调表格的情况共有两种：一种是当插入的表格某一单元格内容过长以至于一行放不下的情况，
+另一种是当对公式中首次出现的物理量符号进行注释的情况。这两种情况都需要调用~tabularx~宏包。下面将分别对这两种情况下可调表格的绘制方法进行阐述。
+\subsection{表格内某单元格内容过长的情况}
+
+首先给出这种情况下的一个例子如表~\ref{tab:table3}~所示。
+\begin{table}[htbp]
+\caption{最小的三个正整数的英文表示法}\label{tab:table3}
+\vspace{0.5em}\wuhao
+\begin{tabularx}{\textwidth}{llX}
+\toprule[1.5pt]
+Value & Name & Alternate names, and names for sets of the given size\\\midrule[1pt]
+1 & One & ace, single, singleton, unary, unit, unity\\
+2 & Two & binary, brace, couple, couplet, distich, deuce, double, doubleton, duad, duality, duet, duo, dyad, pair, snake eyes, span, twain, twosome, yoke\\
+3 & Three & deuce-ace, leash, set, tercet, ternary, ternion, terzetto, threesome, tierce, trey, triad, trine, trinity, trio, triplet, troika, hat-trick\\\bottomrule[1.5pt]
+\end{tabularx}
+\vspace{\baselineskip}
+\end{table}
+绘制这种表格的代码及其说明如下。
+\vspace{1em}\noindent\hrule
+\begin{verbatim}
+\begin{table}[htbp]
+\caption{表标题}\label{标签名(通常为 tab:tablename)}
+\vspace{0.5em}\wuhao
+\begin{tabularx}{\textwidth}{l...X...l}
+\toprule[1.5pt]
+表头第1个格   & ... & 表头第X个格   & ... & 表头第n个格  \\
+\midrule[1pt]
+表中数据(1,1) & ... & 表中数据(1,X) & ... & 表中数据(1,n)\\
+表中数据(2,1) & ... & 表中数据(2,X) & ... & 表中数据(2,n)\\
+.........................................................\\
+表中数据(m,1) & ... & 表中数据(m,X) & ... & 表中数据(m,n)\\
+\bottomrule[1.5pt]
+\end{tabularx}
+\vspace{\baselineskip}
+\end{table}
+\end{verbatim}
+
+\noindent\hrule
+\begin{verbatim}
+tabularx环境共有两个必选参数：第1个参数用来确定表格的总宽度，这里取为排版表格能达到的最大宽度——正文宽度\textwidth；第2 个参数用来确定每列格式，其中标为X的项表示该列的宽度可调，其宽度值由表格总宽度确定。
+标为X的列一般选为单元格内容过长而无法置于一行的列，这样使得该列内容能够根据表格总宽度自动分行。若列格式中存在不止一个X 项，则这些标为X的列的列宽相同，因此，一般不将内容较短的列设为X。
+标为X的列均为左对齐，因此其余列一般选为l（左对齐），这样可使得表格美观，但也可以选为c或r。
+\end{verbatim}
+
+\noindent\hrule
+\subsection{对物理量符号进行注释的情况}
+为使得对公式中物理量符号注释的转行与破折号“———”后第一个字对齐，此处最好采用表格环境。此表格无任何线条，左对齐，
+且在破折号处对齐，一共有“式中”二字、物理量符号和注释三列，表格的总宽度可选为文本宽度，因此应该采用\verb|tabularx|环境。
+由\verb|tabularx|环境生成的对公式中物理量符号进行注释的公式如式(\ref{eq:1})所示。
+%\vspace*{10pt}
+
+\begin{equation}\label{eq:1}
+\ddot{\boldsymbol{\rho}}-\frac{\mu}{R_{t}^{3}}\left(3\mathbf{R_{t}}\frac{\mathbf{R_{t}\rho}}{R_{t}^{2}}-\boldsymbol{\rho}\right)=\mathbf{a}
+\end{equation}
+
+\begin{tabularx}{\textwidth}{@{}l@{\quad}r@{———}X@{}}
+式中& $\bm{\rho}$ &追踪飞行器与目标飞行器之间的相对位置矢量；\\
+&  $\bm{\ddot{\rho}}$&追踪飞行器与目标飞行器之间的相对加速度；\\
+&  $\mathbf{a}$   &推力所产生的加速度；\\
+&  $\mathbf{R_t}$ & 目标飞行器在惯性坐标系中的位置矢量；\\
+&  $\omega_{t}$ & 目标飞行器的轨道角速度；\\
+&  $\mathbf{g}$ & 重力加速度，$=\frac{\mu}{R_{t}^{3}}\left(
+3\mathbf{R_{t}}\frac{\mathbf{R_{t}\rho}}{R_{t}^{2}}-\bm{\rho}\right)=\omega_{t}^{2}\frac{R_{t}}{p}\left(
+3\mathbf{R_{t}}\frac{\mathbf{R_{t}\rho}}{R_{t}^{2}}-\bm{\rho}\right)$，这里~$p$~是目标飞行器的轨道半通径。
+\end{tabularx}
+\vspace{\wordsep}
+
+其中生成注释部分的代码及其说明如下。
+
+\vspace{1em}\noindent\hrule
+
+\begin{verbatim}
+\begin{tabularx}{\textwidth}{@{}l@{\quad}r@{— — —}X@{}}
+式中 & symbol-1 & symbol-1的注释内容；\\
+     & symbol-2 & symbol-2的注释内容；\\
+     .............................；\\
+     & symbol-m & symbol-m的注释内容。
+\end{tabularx}\vspace{\wordsep}
+\end{verbatim}
+
+\noindent\hrule
+
+\begin{verbatim}
+   tabularx环境的第1个参数选为正文宽度，第2个参数里面各个符号的意义为：
+   第1个@{}表示在“式中”二字左侧不插入任何文本，“式中”二字能够在正文中左对齐，若无此项，则“式中”二字左侧会留出一定的空白；
+   @{\quad}表示在“式中”和物理量符号间插入一个空铅宽度的空白；
+   @{— — —}实现插入破折号的功能，它由三个1/2的中文破折号构成；
+   第2个@{}表示在注释内容靠近正文右边界的地方能够实现右对齐。
+\end{verbatim}
+
+\noindent\hrule\vspace{1em}
+
+由此方法生成的注释内容应紧邻待注释公式并置于其下方，因此不能将代码放入~\verb|table|~浮动环境中。但此方法不能实现自动转页接排，
+可能会在当前页剩余空间不够时，全部移动到下一页而导致当前页出现很大空白。因此在需要转页处理时，还请您手动将需要转页的代码放入一个
+新的~\verb|tabularx|~环境中，将原来的一个~\verb|tabularx|~环境拆分为两个~\verb|tabularx|~环境。
+
+若想获得绘制表格的更多信息，参见网络上的~\href{http://www.tug.org/pracjourn/2007-1/mori/}{Tables in \LaTeXe: Packages and Methods}~文档。
+

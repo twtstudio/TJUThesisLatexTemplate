@@ -1,0 +1,280 @@
+% !Mode:: "TeX:UTF-8"
+%  Authors: 张井   Jing Zhang: prayever@gmail.com     天津大学2010级管理与经济学部信息管理与信息系统专业硕士生
+%           余蓝涛 Lantao Yu: lantaoyu1991@gmail.com  天津大学2008级精密仪器与光电子工程学院测控技术与仪器专业本科生
+
+%%%%%%%%%%%%%%%%% Fonts Definition and Basics %%%%%%%%%%%%%%%%%
+\newcommand{\song}{\CJKfamily{song}}    % 宋体
+\newcommand{\fs}{\CJKfamily{fs}}        % 仿宋体
+\newcommand{\kai}{\CJKfamily{kai}}      % 楷体
+\newcommand{\hei}{\CJKfamily{hei}}      % 黑体
+\newcommand{\li}{\CJKfamily{li}}        % 隶书
+\newcommand{\yihao}{\fontsize{26pt}{26pt}\selectfont}       % 一号, 单倍行距
+\newcommand{\xiaoyi}{\fontsize{24pt}{24pt}\selectfont}      % 小一, 单倍行距
+\newcommand{\erhao}{\fontsize{22pt}{1.25\baselineskip}\selectfont}       % 二号, 1.25倍行距
+\newcommand{\xiaoer}{\fontsize{18pt}{18pt}\selectfont}      % 小二, 单倍行距
+\newcommand{\sanhao}{\fontsize{16pt}{16pt}\selectfont}      % 三号, 单倍行距
+\newcommand{\xiaosan}{\fontsize{15pt}{15pt}\selectfont}     % 小三, 单倍行距
+\newcommand{\sihao}{\fontsize{14pt}{14pt}\selectfont}       % 四号, 单倍行距
+\newcommand{\xiaosi}{\fontsize{12pt}{12pt}\selectfont}      % 小四, 单倍行距
+\newcommand{\wuhao}{\fontsize{10.5pt}{10.5pt}\selectfont}   % 五号, 单倍行距
+\newcommand{\xiaowu}{\fontsize{9pt}{9pt}\selectfont}        % 小五, 单倍行距
+
+\CJKtilde  % 重新定义了波浪符~的意义
+\newcommand\prechaptername{第}
+\newcommand\postchaptername{章}
+
+\punctstyle{hangmobanjiao}             % 调整中文字符的表示，行内占一个字符宽度，行尾占半个字符宽度
+
+% 调整罗列环境的布局
+\setitemize{leftmargin=3em,itemsep=0em,partopsep=0em,parsep=0em,topsep=-0em}
+\setenumerate{leftmargin=3em,itemsep=0em,partopsep=0em,parsep=0em,topsep=0em}
+
+% 避免宏包 hyperref 和 arydshln 不兼容带来的目录链接失效的问题。
+\def\temp{\relax}
+\let\temp\addcontentsline
+\gdef\addcontentsline{\phantomsection\temp}
+
+% 自定义项目列表标签及格式 \begin{publist} 列表项 \end{publist}
+\newcounter{pubctr} %自定义新计数器
+\newenvironment{publist}{%%%%%定义新环境
+\begin{list}{[\arabic{pubctr}]} %%标签格式
+    {
+     \usecounter{pubctr}
+     \setlength{\leftmargin}{2.5em}   % 左边界 \leftmargin =\itemindent + \labelwidth + \labelsep
+     \setlength{\itemindent}{0em}     % 标号缩进量
+     \setlength{\labelsep}{1em}       % 标号和列表项之间的距离,默认0.5em
+     \setlength{\rightmargin}{0em}    % 右边界
+     \setlength{\topsep}{0ex}         % 列表到上下文的垂直距离
+     \setlength{\parsep}{0ex}         % 段落间距
+     \setlength{\itemsep}{0ex}        % 标签间距
+     \setlength{\listparindent}{0pt}  % 段落缩进量
+    }}
+{\end{list}}
+
+\makeatletter
+\renewcommand\normalsize{
+  \@setfontsize\normalsize{12pt}{12pt} % 小四对应 12 pt
+  \setlength\abovedisplayskip{4pt}
+  \setlength\abovedisplayshortskip{4pt}
+  \setlength\belowdisplayskip{\abovedisplayskip}
+  \setlength\belowdisplayshortskip{\abovedisplayshortskip}
+  \let\@listi\@listI}
+\def\defaultfont{\renewcommand{\baselinestretch}{1.63}\normalsize\selectfont} % 设置行距
+
+\renewcommand{\CJKglue}{\hskip -0.1 pt plus 0.08\baselineskip} % 控制字间距，使每行 34 个汉字
+\makeatother
+
+%%%%%%%%%%%%% Contents %%%%%%%%%%%%%%%%%
+\renewcommand{\contentsname}{目\qquad 录}
+\setcounter{tocdepth}{1} % 控制目录深度
+\titlecontents{chapter}[2em]{\vspace{.5\baselineskip}\xiaosan\song}
+             {\prechaptername\CJKnumber{\thecontentslabel}\postchaptername\qquad}{}
+             {\hspace{.5em}\titlerule*[10pt]{$\cdot$}\sihao\contentspage}
+\titlecontents{section}[3em]{\vspace{.25\baselineskip}\sihao\song}
+             {\thecontentslabel\quad}{}
+             {\hspace{.5em}\titlerule*[10pt]{$\cdot$}\sihao\contentspage}
+\titlecontents{subsection}[4em]{\vspace{.25\baselineskip}\xiaosi\song}
+             {\thecontentslabel\quad}{}
+             {\hspace{.5em}\titlerule*[10pt]{$\cdot$}\sihao\contentspage}
+
+%%%%%%%%%% Chapter and Section %%%%%%%%%%%%%
+\setcounter{secnumdepth}{4}
+\setlength{\parindent}{2em}
+\renewcommand{\chaptername}{\prechaptername\CJKnumber{\thechapter}\postchaptername}
+\titleformat{\chapter}{\centering\xiaosan\song\bfseries}{\hei\chaptername}{2em}{}
+\titlespacing{\chapter}{0pt}{0.1\baselineskip}{0.8\baselineskip}
+\titleformat{\section}{\sihao\hei}{\thesection}{1em}{}
+\titlespacing{\section}{0pt}{0.15\baselineskip}{0.25\baselineskip}
+\titleformat{\subsection}{\sihao\hei}{\thesubsection}{1em}{}
+\titlespacing{\subsection}{0pt}{0.1\baselineskip}{0.3\baselineskip}
+\titleformat{\subsubsection}{\sihao\hei}{\thesubsubsection}{1em}{}
+\titlespacing{\subsubsection}{0pt}{0.05\baselineskip}{0.1\baselineskip}
+
+%%%%%%%%%% Table, Figure and Equation %%%%%%%%%%%%%%%%%
+\renewcommand{\tablename}{表}                                     % 插表题头
+\renewcommand{\figurename}{图}                                    % 插图题头
+\renewcommand{\thefigure}{\arabic{chapter}-\arabic{figure}}       % 使图编号为 7-1 的格式 %\protect{~}
+\renewcommand{\thesubfigure}{\alph{subfigure})}                   % 使子图编号为 a) 的格式
+\renewcommand{\thesubtable}{(\alph{subtable})}                    % 使子表编号为 (a) 的格式
+\renewcommand{\thetable}{\arabic{chapter}-\arabic{table}}         % 使表编号为 7-1 的格式
+\renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}   % 使公式编号为 7-1 的格式
+
+%%%%%% 定制浮动图形和表格标题样式 %%%%%%
+\makeatletter
+\long\def\@makecaption#1#2{
+   \vskip\abovecaptionskip
+   \sbox\@tempboxa{\centering\wuhao\song{#1\qquad #2} }
+   \ifdim \wd\@tempboxa >\hsize
+     \centering\wuhao\song{#1\qquad #2} \par
+   \else
+     \global \@minipagefalse
+     \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}
+   \fi
+   \vskip\belowcaptionskip}
+\makeatother
+\captiondelim{~~~~} %用来控制longtable表头分隔符
+
+%%%%%%%%%% Theorem Environment %%%%%%%%%%%%%%%%%
+\theoremstyle{plain}
+\theorembodyfont{\song\rmfamily}
+\theoremheaderfont{\hei\rmfamily}
+\newtheorem{theorem}{定理~}[chapter]
+\newtheorem{lemma}{引理~}[chapter]
+\newtheorem{axiom}{公理~}[chapter]
+\newtheorem{proposition}{命题~}[chapter]
+\newtheorem{prop}{性质~}[chapter]
+\newtheorem{corollary}{推论~}[chapter]
+\newtheorem{definition}{定义~}[chapter]
+\newtheorem{conjecture}{猜想~}[chapter]
+\newtheorem{example}{例~}[chapter]
+\newtheorem{remark}{注~}[chapter]
+%\newtheorem{algorithm}{算法~}[chapter]
+\newenvironment{proof}{\noindent{\hei 证明：}}{\hfill $ \square $ \vskip 4mm}
+\theoremsymbol{$\square$}
+
+%%%%%%%%%% Page: number, header and footer  %%%%%%%%%%%%%%%%%
+
+%\frontmatter 或 \pagenumbering{roman}
+%\mainmatter 或 \pagenumbering{arabic}
+\makeatletter
+\renewcommand\frontmatter{\clearpage
+  \@mainmatterfalse
+  }
+\makeatother
+
+%%%%%%%%%%%% References %%%%%%%%%%%%%%%%%
+\renewcommand{\bibname}{参考文献}
+% 重定义参考文献样式，来自thu
+\makeatletter
+\renewenvironment{thebibliography}[1]{
+    \titleformat{\chapter}{\raggedright\sihao\hei}{\chaptername}{2em}{}
+   \chapter*{\bibname}
+   \wuhao
+   \list{\@biblabel{\@arabic\c@enumiv}}
+        {\renewcommand{\makelabel}[1]{##1\hfill}
+         \settowidth\labelwidth{0 cm}
+         \setlength{\labelsep}{0pt}
+         \setlength{\itemindent}{0pt}
+         \setlength{\leftmargin}{\labelwidth+\labelsep}
+         \addtolength{\itemsep}{-0.7em}
+         \usecounter{enumiv}
+         \let\p@enumiv\@empty
+         \renewcommand\theenumiv{\@arabic\c@enumiv}}
+    \sloppy\frenchspacing
+    \clubpenalty4000
+    \@clubpenalty \clubpenalty
+    \widowpenalty4000
+    \interlinepenalty4000
+    \sfcode`\.\@m}
+   {\def\@noitemerr
+     {\@latex@warning{Empty `thebibliography' environment}}
+    \endlist\frenchspacing}
+\makeatother
+
+\addtolength{\bibsep}{-0.5em}     % 缩小参考文献间的垂直间距
+\setlength{\bibhang}{2em}         % 每个条目自第二行起缩进的距离
+
+% 参考文献引用作为上标出现
+%\newcommand{\citeup}[1]{\textsuperscript{\cite{#1}}}
+\makeatletter
+    \def\@cite#1#2{\textsuperscript{[{#1\if@tempswa , #2\fi}]}}
+\makeatother
+%% 引用格式
+\bibpunct{[}{]}{,}{s}{}{,}
+
+%%%%%%%%%%%% Cover %%%%%%%%%%%%%%%%%
+% 封面、摘要、版权、致谢格式定义
+\makeatletter
+\def\ctitle#1{\def\@ctitle{#1}}\def\@ctitle{}
+\def\cdegree#1{\def\@cdegree{#1}}\def\@cdegree{}
+\def\caffil#1{\def\@caffil{#1}}\def\@caffil{}
+\def\csubject#1{\def\@csubject{#1}}\def\@csubject{}
+\def\cgrade#1{\def\@cgrade{#1}}\def\@cgrade{}
+\def\cauthor#1{\def\@cauthor{#1}}\def\@cauthor{}
+\def\cnumber#1{\def\@cnumber{#1}}\def\@cnumber{}
+\def\csupervisor#1{\def\@csupervisor{#1}}\def\@csupervisor{}
+\def\crank#1{\def\@crank{#1}}\def\@crank{}
+\def\cdate#1{\def\@cdate{#1}}\def\@cdate{}
+\long\def\cabstract#1{\long\def\@cabstract{#1}}\long\def\@cabstract{}
+\long\def\eabstract#1{\long\def\@eabstract{#1}}\long\def\@eabstract{}
+\def\ckeywords#1{\def\@ckeywords{#1}}\def\@ckeywords{}
+\def\ekeywords#1{\def\@ekeywords{#1}}\def\@ekeywords{}
+\def\cheading#1{\def\@cheading{#1}}\def\@cheading{}
+
+
+\pagestyle{fancy}
+  \fancyhf{}
+  \fancyhead[C]{\song\wuhao \@cheading}  % 页眉显示天津大学 20XX 届本科生毕业论文
+  \fancyfoot[C]{\song\xiaowu ~\thepage~}
+\newlength{\@title@width}
+
+% 定义封面
+\def\makecover{
+%\cleardoublepage%
+   \phantomsection
+    \pdfbookmark[-1]{\@ctitle}{ctitle}
+
+    \begin{titlepage}
+      \vspace*{31.5pt}
+      \begin{center}
+
+  \begin{figure}[h]
+  \centering
+  \includegraphics[width=0.4\textwidth]{figures/tju}
+  \end{figure}
+  \vspace*{21pt}
+  \hei\erhao{\textbf{本科生毕业设计说明书}}
+  \vspace*{52.5pt}
+
+  \begin{figure}[h]
+  \centering
+  \includegraphics[width=0.3\textwidth]{figures/Tjulogo}
+  \end{figure}
+
+  \vspace*{42pt}
+  \setlength{\@title@width}{8cm}
+  {\sanhao\song{\bf{
+  \begin{tabular}{lc}
+    学\qquad 院&  \underline{\makebox[\@title@width][c]{\@caffil}} \\
+    专\qquad 业 &  \underline{\makebox[\@title@width][c]{\@csubject}} \\
+    年\qquad 级  &  \underline{\makebox[\@title@width][c]{\@cgrade}}\\
+    姓\qquad 名 &  \underline{\makebox[\@title@width][c]{\@cauthor}} \\
+    指导教师 &  \underline{\makebox[\@title@width][c]{\@csupervisor}} \\
+  \end{tabular}}}
+ }
+  \vspace*{21pt}
+
+\song\sanhao{\textbf{\@cdate}}
+\end{center}
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%   Abstract and Keywords  %%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\markboth{摘~要}{摘~要}
+\pdfbookmark[0]{摘~~要}{cabstract}
+%\addcontentsline{toc}{chapter}{摘~要}
+\chapter*{\centering\sanhao\song\bfseries 摘\qquad 要}
+\song\defaultfont
+\@cabstract
+\vspace{\baselineskip}
+
+\hangafter=1\hangindent=52.3pt\noindent
+{\hei\xiaosi 关键词：} \@ckeywords
+\thispagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%   English Abstract  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+%\phantomsection
+\markboth{ABSTRACT}{ABSTRACT}
+\pdfbookmark[0]{ABSTRACT}{eabstract}
+%\addcontentsline{toc}{chapter}{ABSTRACT}
+\chapter*{\centering\sanhao{\bf{ABSTRACT}}}
+%\vspace{\baselineskip}
+\@eabstract
+\vspace{\baselineskip}
+
+\hangafter=1\hangindent=60pt\noindent
+{\textbf{Keywords:}} \@ekeywords
+\thispagestyle{empty}
+}
+\makeatother

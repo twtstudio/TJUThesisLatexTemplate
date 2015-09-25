@@ -1,0 +1,13 @@
+% !Mode:: "TeX:UTF-8"
+
+\titlecontents{chapter}[2em]{\vspace{.5\baselineskip}\xiaosan\song}
+             {\prechaptername\CJKnumber{\thecontentslabel}\postchaptername\qquad}{}
+             {}             % 设置该选项为空是为了不让目录中显示页码
+\addcontentsline{toc}{chapter}{中文译文}
+\setcounter{page}{1}            % 单独从 1 开始编页码
+\markboth{中文译文}{中文译文}   % 用于将章节号添加到页眉中
+\chapter*{中文译文}
+
+这里就是外文资料的中文翻译。
+
+...
