@@ -53,15 +53,15 @@
 
 %%%%%%%%%%  参考文献  %%%%%%%%%%
 \defaultfont
-\bibliographystyle{TJUThesis}
+\bibliographystyle{references/ref.buk}
 \phantomsection
 \markboth{参考文献}{参考文献}
 \addcontentsline{toc}{chapter}{参考文献}       % 参考文献加入到中文目录
 \nocite{*}                                     % 若将此命令屏蔽掉，则未引用的文献不会出现在文后的参考文献中
 \bibliography{references/reference}
 \titleformat{\chapter}{\centering\sihao\hei}{\chaptername}{2em}{}
-\include{appendix/paperInEnglish}              % 外文资料
 \include{appendix/paperInChinese}              % 中文译文
+\include{appendix/paperInEnglish}              % 外文资料
 \include{appendix/acknowledgements}            % 致谢
 \clearpage
 \end{document}                                 % 结束全文
