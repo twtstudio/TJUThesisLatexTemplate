@@ -63,27 +63,9 @@ rulesepcolor=\color{red!20!green!20!blue!20}
 \newcolumntype{R}[1]{>{\PreserveBackslash\raggedleft}p{#1}}
 \newcolumntype{L}[1]{>{\PreserveBackslash\raggedright}p{#1}}
 
-% 生成有书签的 pdf 及其生成方式。通常可以在 tjumain.tex 文件的第一行选择 pdflatex 或者是 dvipdfmx 编译手段。如果选择前者，则使用 pdflatex + pdflatex 编译; 如果选择后者，在编译的时候选择 latex + bibtex + latex + latex 编译。出现混淆的时候，系统会报错。
-% 如果您的pdf制作中文书签有乱码使用如下命令，就可以解决了
-\def\atemp{dvipdfmx}\ifx\atemp\usewhat
-\usepackage[dvipdfmx,unicode,               % dvipdfmx 编译, 加入了中文复制，粘贴支持引擎。
+\def\atemp{xelatex}\ifx\atemp\usewhat
+\usepackage[unicode,
             pdfstartview=FitH,
-            bookmarksnumbered=true,
-            bookmarksopen=true,
-            colorlinks=false,
-            pdfborder={0 0 1},
-            citecolor=blue,
-            linkcolor=red,
-            anchorcolor=green,
-            urlcolor=blue,
-            breaklinks=true
-            ]{hyperref}
-\fi
-
-\def\atemp{pdflatex}\ifx\atemp\usewhat
-\usepackage{cmap}                           % pdflatex 编译时，可以生成可复制、粘贴的中文 PDF 文档， 缺点是在Windows上显示时效果不大好，字体发虚
-\usepackage[pdftex,unicode,
-            %CJKbookmarks=true,
             bookmarksnumbered=true,
             bookmarksopen=true,
             colorlinks=false,
