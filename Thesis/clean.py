@@ -6,11 +6,10 @@ import shutil
 
 
 def run():
-    root_directory = os.getcwd()
-    os.system('cd ' + root_directory.replace(' ', '\ '))
-    os.system('xelatex tjumain.tex')
-    os.system('xelatex tjumain.tex')
-    os.system('xelatex tjumain.tex')
+    root_directory = os.path.split(os.path.realpath(__file__))[0]
+    os.chdir(root_directory)
+    # os.system('xelatex tjumain.tex')
+    # os.system('xelatex tjumain.tex')
 
     # clean
     for folder_name in os.listdir('.'):
@@ -26,7 +25,7 @@ def run():
             if portion[1] == '.aux' or portion[1] == '.log' or portion[1] == '.out' or portion[1] == '.thm' or portion[1] == '.toc' or portion[1] == '.bbl' or portion[1] == '.blg' or portion[1] == '.fdb_latexmk' or portion[1] == '.fls' or portion[1] == '.gz':
                 os.remove(os.path.join(os.getcwd(), folder_name))
 
-    print 'All log files cleaned'
+    print 'All log files cleaned.'
 
 
 if __name__ == '__main__':

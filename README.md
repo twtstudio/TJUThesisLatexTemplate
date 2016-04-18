@@ -15,9 +15,14 @@ Latex template for TJU thesis. Forked from code.google.com/p/tjuthesis
 
 # 编译
 
+之前的编译脚本（调用命令行 `xelatex tjumain.tex`）会导致参考文献无法编译，正在努力解决问题，请以正常编译 latex 文档的方式编译 tjumain.tex。注意：由于存在目录及参考文献等，需要多次编译以保证顺序正确。
+
+# 清理缓存及日志
+
 * 打开终端
-* `cd`到模板目录下
-* `python compile.py`，脚本会自动执行多次编译（以保证目录、图、表等编号正确）并清理各种 log, synctex, aux 文件
+* 拖入 clean.py 执行
+
+如提示 Permission Denied，请使用 `sudo chmod 777`
 
 # License
 
