@@ -73,7 +73,7 @@
 
 %%%%%%%%%%%%% Contents %%%%%%%%%%%%%%%%%
 \renewcommand{\contentsname}{目\qquad 录}
-\setcounter{tocdepth}{1} % 控制目录深度
+\setcounter{tocdepth}{2} % 控制目录深度
 % 使用 ctexbook 之后已无必要
 %\titlecontents{chapter}[2em]{\vspace{.5\baselineskip}\xiaosan\song}
              %{\prechaptername\CJKnumber{\thecontentslabel}\postchaptername\qquad}{}
@@ -84,7 +84,7 @@
 \titlecontents{section}[3em]{\vspace{.25\baselineskip}\sihao\song}
              {\thecontentslabel\quad}{}
              {\hspace{.5em}\titlerule*[10pt]{$\cdot$}\sihao\contentspage}
-\titlecontents{subsection}[4em]{\vspace{.25\baselineskip}\xiaosi\song}
+\titlecontents{subsection}[4em]{\vspace{.25\baselineskip}\sihao\song}
              {\thecontentslabel\quad}{}
              {\hspace{.5em}\titlerule*[10pt]{$\cdot$}\sihao\contentspage}
 
@@ -109,6 +109,7 @@
 \renewcommand{\thesubtable}{(\alph{subtable})}                    % 使子表编号为 (a) 的格式
 \renewcommand{\thetable}{\arabic{chapter}-\arabic{table}}         % 使表编号为 7-1 的格式
 \renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}   % 使公式编号为 7-1 的格式
+\newcommand{\ud}{\mathrm{d}}
 
 %%%%%% 定制浮动图形和表格标题样式 %%%%%%
 \makeatletter
@@ -152,6 +153,30 @@
   \@mainmatterfalse
   }
 \makeatother
+
+%%%%%%%%%%% Code: Listings from MCM Template %%%%%%%%%%%%
+
+\definecolor{grey}{rgb}{0.8,0.8,0.8}
+\definecolor{darkgreen}{rgb}{0,0.3,0}
+\definecolor{darkblue}{rgb}{0,0,0.3}
+\def\lstbasicfont{\fontfamily{pcr}\selectfont\footnotesize}
+\lstset{%
+% indexing
+   % numbers=left,
+   % numberstyle=\small,%
+% character display
+    showstringspaces=false,
+    showspaces=false,%
+    tabsize=4,%
+% style
+    frame=lines,%
+    basicstyle={\footnotesize\lstbasicfont},%
+    keywordstyle=\color{darkblue}\bfseries,%
+    identifierstyle=,%
+    commentstyle=\color{darkgreen},%\itshape,%
+    stringstyle=\color{black}%
+}
+\lstloadlanguages{C,C++,Java,Matlab,Mathematica,Python}
 
 %%%%%%%%%%%% References %%%%%%%%%%%%%%%%%
 \renewcommand{\bibname}{参考文献}
