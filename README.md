@@ -15,7 +15,7 @@ Latex template for TJU thesis. Forked from code.google.com/p/tjuthesis
 
 # 编译
 
-之前的编译脚本（调用命令行 `xelatex tjumain.tex`）会导致参考文献无法编译，正在努力解决问题，请以正常编译 latex 文档的方式编译 tjumain.tex。注意：由于存在目录、参考文献和图表编号等，需要多次编译以保证顺序正确。
+之前的编译脚本（调用命令行 `xelatex tjumain.tex`）会导致参考文献无法编译，正在努力解决问题，请以正常编译 latex 文档的方式编译 tjumain.tex 或 body.tex。注意：由于存在目录、参考文献和图表编号等，需要多次编译以保证顺序正确（推荐4次为佳）。
 
 # 清理缓存及日志
 
@@ -23,6 +23,14 @@ Latex template for TJU thesis. Forked from code.google.com/p/tjuthesis
 * 拖入 clean.py 执行
 
 如提示 Permission Denied，请使用 `sudo chmod 777`
+
+# 推荐工具链
+
+* MacTex
+* Sublime Text 3
+	* LatexTools
+	* Latex-cwl
+	* LatexWordCount
 
 # License
 
