@@ -11,44 +11,42 @@
 
 \section{真的只是一个测试}
 
-中文学位论文测试。
+中文学位论文测试\cite{zhang2010tree}。
 
-\subsection{测试}
+\subsection{参考文献标引}
 
-一只敏捷的棕色狐狸跳过那只懒惰的狗。
+一只敏捷的棕色狐狸跳过那只懒惰的狗\cite{deng:01a}。
 
 \chapter{继续测试}
 
-\section{测试}
+\section{行内公式与行间公式}
 
-由公式
+考虑整个供应链的利润函数$\beta_{SC}$。因为$\frac{\partial\beta_{SC}}{\partial p_1}=q-\int_0^q F(x)\ud x>0$，所以$\beta_{SC}$对$p_1$单调递增，所以：
+\begin{equation}
+\label{dscNoStgProof0}
+\beta_{SC}(q_s,p_{1s},p_{2s})<\beta_{SC}(q_s,p_{1n},p_{2n})
+\end{equation}
 
-\[E = mc^2\]
+因为对于$\forall q\in[q_s, q_n)$，有：
+\[ \left.\frac{\partial \beta_{SC}}{\partial q}\right|_{(q,p_{1n},p_{2n})}=p_{1n}-c+c_L+(p_{2n}-p_{1n}-c_L)F(q) \]
 
-\noindent 下面列出了一些应采用直立数学字体的数学常数和数学符号。
+销售商决策如式~\eqref{rcond}~所示：
+\begin{equation}
+\label{rcond}
+\left\{\begin{array}{l}
+p_{1s}=v_h-(v_h-p_2)\mathbb{E}(\varphi) \\
+p_{2s}=v_l \\
+q_s \in \underset{q \geq 0}{\mathrm{argmax}} \beta_R (q, p_1, p_2) \\
+\end{array}\right.
+\end{equation}
 
-\vspace{-0.5em}
-\begin{center}
-\begin{tabularx}{0.7\textwidth}{XX}
-$\mathrm{d}$、 $\mathrm{D}$、 $\mathrm{p}$~———微分算子 & $\mathrm{e}$~———自然对数之底数 \\
-$\mathrm{i}$、 $\mathrm{j}$~———虚数单位 & $\piup$———圆周率\\
-\end{tabularx}
-\end{center}
+\section{插图}
 
-\section{行内公式}
-
-出现在正文一行之内的公式称为行内公式，例如~$f(x)=\int_{a}^{b}\frac{\sin{x}}{x}\mathrm{d}x$。对于非矩阵和非多行形式的行内公式，一般不会使得行距发生变化，而~Word~等软件却会根据行内公式的竖直距离而自动调节行距，如图~\ref{fig:hangju}~所示。
-
-\begin{figure}[htbp]
+当$q=5190$时，$p_{1s}=5.78,p_{2s}=2.95$，图像如图~\ref{fig:simuP1P2Result}~所示。
+\begin{figure}[htbp!]
 \centering
-\subfigure[由~\LaTeX~系统生成的行内公式]{\label{fig:subfig:latex}
-                \fbox{\includegraphics[width=0.55\textwidth]{latex}}}
-\subfigure[由~Word软件生成的~.doc~格式行内公式]{\label{fig:subfig:word}
-                \fbox{\includegraphics[width=0.55\textwidth]{word}}}
-\subfigure[由~Word软件生成的~.pdf~格式行内公式]{\label{fig:subfig:pdf}
-                \fbox{\includegraphics[width=0.55\textwidth]{pdf}}}
-
-\caption{由~\LaTeX~和~Word~生成的~3~种行内公式屏显效果}\label{fig:hangju}
+\includegraphics[width=0.75\textwidth]{figures/p1p2figure.eps}
+\caption{最优$p_1, p_2$仿真结果}\label{fig:simuP1P2Result}
 \vspace{-1em}
 \end{figure}
 
@@ -63,14 +61,9 @@ int main(int argc, char ** argv) {
 }
 \end{lstlisting}
 
-\noindent\hrule
-\vspace{0.1em}\noindent\hrule
-
-\vspace{1em}
-
 \section{普通表格的绘制方法}
 
-表格应具有三线表格式，因此需要调用~booktabs~宏包，其标准格式如表 \ref{tab:table1} 所示。
+表格应具有三线表格式，其标准格式如表 \ref{tab:table1} 所示。
 \begin{table}[htbp]
 \caption{符合本科生毕业论文绘图规范的表格}\label{tab:table1}
 \vspace{0.5em}\centering\wuhao
@@ -94,11 +87,6 @@ $D$(in) & $P_u$(lbs) & $u_u$(in) & $\beta$ & $G_f$(psi.in)\\
 \end{tabular}
 \vspace{\baselineskip}
 \end{table}
-
-\section{代码}
-
-清理缓存的代码如下：
-\lstinputlisting[language=Python]{clean.py}
 
 %%%%%%% 结论 %%%%%%%
 
