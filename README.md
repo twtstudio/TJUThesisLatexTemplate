@@ -25,7 +25,7 @@ LaTeX 加本模板可以实现：
 
 ## 基本使用
 
-首先请阅读文档《一份不太简短的 LaTeX 介绍》，了解 LaTeX 的基础语法。
+首先请阅读文档《[一份不太简短的 LaTeX 介绍]((http://www.ctan.org/tex-archive/info/lshort/chinese/))》，了解 LaTeX 的基础语法。
 
 然后打开 Thesis/preface/cover.tex，修改封面内容。
 
