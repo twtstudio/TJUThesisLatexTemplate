@@ -8,8 +8,6 @@ import shutil
 def run():
     root_directory = os.path.split(os.path.realpath(__file__))[0]
     os.chdir(root_directory)
-    # os.system('xelatex tjumain.tex')
-    # os.system('xelatex tjumain.tex')
 
     # clean
     for folder_name in os.listdir('.'):
