@@ -33,7 +33,7 @@ LaTeX 加本模板可以实现：
 
 ## 数学公式
 
-数学公式的具体书写方式参考文档《[一份不太简短的 LaTeX 介绍](http://www.ctan.org/tex-archive/info/lshort/chinese/)》，注意：需要标号的公式请在`equation`环境下配合`\label{}`标签使用，在需要引用的地方使用`\eqref{}`命令引用相应公式。事例如下：
+数学公式的具体书写方式参考文档《[一份不太简短的 LaTeX 介绍](http://www.ctan.org/tex-archive/info/lshort/chinese/)》，注意：需要标号的公式请在`equation`环境下配合`\label{}`标签使用，在需要引用的地方使用`\eqref{}`命令引用相应公式。示例如下：
 
 ```latex
 销售商决策如式~\eqref{rcond}~所示：
