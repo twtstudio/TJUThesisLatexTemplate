@@ -126,7 +126,15 @@ $D$(in) & $P_u$(lbs) & $u_u$(in) & $\beta$ & $G_f$(psi.in)\\
 
 ## 清理缓存及日志
 
-如使用 Atom 编辑器，可安装插件`language-latex`和`latex`，提供 Build 和 Clean 的功能。
+### Atom
+
+安装插件`language-latex`和`latex`，提供 Build 和 Clean 的功能。
+
+### Visual Studio Code
+
+安装插件 `LaTeX Workshop`，提供 clean up
+
+### 其他
 
 也可使用我提供的小脚本：
 
@@ -140,14 +148,33 @@ $D$(in) & $P_u$(lbs) & $u_u$(in) & $\beta$ & $G_f$(psi.in)\\
 * 发行版
     * macOS: MacTex
     * Windows: ctex
-* Sublime Text 3
-	* LatexTools
-	* Latex-cwl
-	* LatexWordCount
+* Visual Studio Code
+	* LaTeX Workshop
 * Atom
 	* language-latex
 	* latexer
     * latextools
+* Sublime Text 3
+	* LatexTools
+	* Latex-cwl
+	* LatexWordCount
+
+注意：使用 VS Code 配合 LaTeX Workshop 插件，可能需要在 VS Code 设置中加入
+
+```json
+"latex-workshop.latex.toolchain": [
+	{
+		"command": "xelatex",
+		"args": [
+			"-synctex=1",
+			"-interaction=nonstopmode",
+			"-file-line-error",
+			"-pdf",
+			"%DOC%"
+		]
+	}
+]
+```
 
 # 致谢
 
