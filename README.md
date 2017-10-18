@@ -187,4 +187,4 @@ tjuthesis 的原作者们作出了前人栽树的不可磨灭的贡献：
 
 # License
 
-WTFPL – Do What the Fuck You Want to Public License.
+由于原项目使用 GNU GPL v3 协议，本项目作为基于 tjuthesis 的衍生项目，仍保持 GNU GPL v3 协议。
