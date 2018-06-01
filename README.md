@@ -108,7 +108,7 @@ $D$(in) & $P_u$(lbs) & $u_u$(in) & $\beta$ & $G_f$(psi.in)\\
 
 # 关于本魔改
 
-本魔改适用于 texlive 2015，使用 `xelatex` 进行编译。在 macOS 下进行修改与测试，无法完全保证其它平台的正常使用。希望 Windows/Linux 用户踊跃反馈。
+本魔改适用于 texlive 2018，使用 `xelatex` 进行编译。在 macOS 下进行修改与测试，无法完全保证其它平台的正常使用。希望 Windows/Linux 用户踊跃反馈。
 
 ## 魔改内容
 
@@ -120,7 +120,7 @@ $D$(in) & $P_u$(lbs) & $u_u$(in) & $\beta$ & $G_f$(psi.in)\\
 
 ## 编译
 
-之前的编译脚本（调用命令行 `xelatex tjumain.tex`）会导致参考文献无法编译，正在努力解决问题，请以正常编译 LaTeX 文档的方式编译 tjumain.tex 或 body.tex。
+直接使用 `xelatex tjumain.tex`
 
 注意：由于存在目录、参考文献和图表编号等，需要多次编译以保证顺序正确。
 
