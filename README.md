@@ -139,9 +139,9 @@ $D$(in) & $P_u$(lbs) & $u_u$(in) & $\beta$ & $G_f$(psi.in)\\
 也可使用我提供的小脚本：
 
 * 打开终端
-* 拖入 `clean.py` 执行
+* 拖入 `clean.sh` 执行
 
-如提示 Permission Denied，请使用 `sudo chmod 777`。
+如提示 Permission Denied，请使用 `chmod +x空格`，然后拖入 `clean.sh`，再次拖入 `clean.sh` 执行即可。
 
 # 推荐工具链
 
