@@ -163,16 +163,16 @@ $D$(in) & $P_u$(lbs) & $u_u$(in) & $\beta$ & $G_f$(psi.in)\\
 
 ```json
 "latex-workshop.latex.toolchain": [
-	{
-		"command": "xelatex",
-		"args": [
-			"-synctex=1",
-			"-interaction=nonstopmode",
-			"-file-line-error",
-			"-pdf",
-			"%DOC%"
-		]
-	}
+    {
+        "command": "xelatex",
+        "args": [
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+            "-pdf",
+            "%DOC%"
+        ]
+    }
 ]
 ```
 
