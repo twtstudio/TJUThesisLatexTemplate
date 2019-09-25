@@ -136,7 +136,7 @@ $D$(in) & $P_u$(lbs) & $u_u$(in) & $\beta$ & $G_f$(psi.in)\\
 
 ### 其他
 
-也可使用我提供的小脚本：
+也可使用 [@Halcao](https://github.com/Halcao) 提供的小脚本：
 
 * 打开终端
 * 拖入 `clean.sh` 执行
