@@ -108,10 +108,7 @@ $D$(in) & $P_u$(lbs) & $u_u$(in) & $\beta$ & $G_f$(psi.in)\\
 
 # 关于本魔改
 
-本魔改适用于 texlive 2018，使用 `xelatex` 进行编译。在 macOS 下进行修改与测试，无法完全保证其它平台的正常使用。希望 Windows/Linux 用户踊跃反馈。
-
-
-新增：适用于texlive 2020，使用 `xelatex->bibtex->xelatex->xelatex` 编译链。在 Windows 10 下进行修改与测试正常。
+本魔改适用于 texlive 2020，使用 `xelatex->bibtex->xelatex->xelatex` 编译链。在 macOS, Windows 10 下进行修改与测试，无法完全保证其它平台的正常使用。希望 Linux 用户踊跃反馈。
 
 ## 魔改内容
 
@@ -155,7 +152,7 @@ xelatex tjumain.tex
 
 * 发行版
     * macOS: MacTex
-    * Windows: TeX Live (千万别碰邪恶CTeX啊啊啊!!!)
+    * Windows: TeX Live
 * Visual Studio Code
 	* LaTeX Workshop
 * Atom
@@ -169,7 +166,7 @@ xelatex tjumain.tex
 
 注意：使用 VS Code 配合 LaTeX Workshop 插件，可能需要在 VS Code 设置中加入
 
-```json
+```js
 "latex-workshop.latex.tools": [
     {
         "name": "xelatex",
