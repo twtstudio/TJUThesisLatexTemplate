@@ -108,19 +108,24 @@ $D$(in) & $P_u$(lbs) & $u_u$(in) & $\beta$ & $G_f$(psi.in)\\
 
 # 关于本魔改
 
-本魔改适用于 texlive 2018，使用 `xelatex` 进行编译。在 macOS 下进行修改与测试，无法完全保证其它平台的正常使用。希望 Windows/Linux 用户踊跃反馈。
+本魔改适用于 texlive 2020，使用 `xelatex->bibtex->xelatex->xelatex` 编译链。在 macOS, Windows 10 下进行修改与测试，无法完全保证其它平台的正常使用。希望 Linux 用户踊跃反馈。
 
 ## 魔改内容
 
 * 天大 logo 更新及矢量校名
 * 移除 CJK，使用 ctex
 * 根据现行本科生毕业论文规范修改格式
-* 适应 macOS 与 xelatex
+* 适应 macOS, Windows 与 xelatex
 * 为适应我推荐的工具链做了一些优化
 
 ## 编译
 
-直接使用 `xelatex tjumain.tex`
+```bash
+xelatex tjumain.tex
+bibtex tjumain.tex
+xelatex tjumain.tex
+xelatex tjumain.tex
+```
 
 注意：由于存在目录、参考文献和图表编号等，需要多次编译以保证顺序正确。
 
@@ -147,7 +152,7 @@ $D$(in) & $P_u$(lbs) & $u_u$(in) & $\beta$ & $G_f$(psi.in)\\
 
 * 发行版
     * macOS: MacTex
-    * Windows: ctex
+    * Windows: TeX Live
 * Visual Studio Code
 	* LaTeX Workshop
 * Atom
@@ -161,18 +166,66 @@ $D$(in) & $P_u$(lbs) & $u_u$(in) & $\beta$ & $G_f$(psi.in)\\
 
 注意：使用 VS Code 配合 LaTeX Workshop 插件，可能需要在 VS Code 设置中加入
 
-```json
-"latex-workshop.latex.toolchain": [
+```js
+"latex-workshop.latex.tools": [
     {
+        "name": "xelatex",
         "command": "xelatex",
         "args": [
             "-synctex=1",
             "-interaction=nonstopmode",
             "-file-line-error",
-            "-pdf",
-            "%DOC%"
+            "%DOCFILE%" // 将%DOC%替换成%DOCFILE%可以支持编译中文路径下的文件
+        ]
+    },
+    {
+        "name": "bibtex",
+        "command": "bibtex",
+        "args": [
+            "%DOCFILE%"
         ]
     }
+],
+"latex-workshop.latex.recipes": [
+    {
+        "name": "xelatex",
+        "tools": [
+            "xelatex"
+        ],
+    },
+    {
+        "name": "xe->bib->xe->xe", // 使用本模板推荐的编译链
+        "tools": [
+            "xelatex",
+            "bibtex",
+            "xelatex",
+            "xelatex"
+        ]
+    },
+],
+"latex-workshop.latex.clean.fileTypes": [ // 清除编译生成的中间文件
+    "*.aux",
+    "*.bbl",
+    "*.blg",
+    "*.idx",
+    "*.ind",
+    "*.lof",
+    "*.lot",
+    "*.out",
+    "*.toc",
+    "*.acn",
+    "*.acr",
+    "*.alg",
+    "*.glg",
+    "*.glo",
+    "*.gls",
+    "*.ist",
+    "*.fls",
+    "*.log",
+    "*.fdb_latexmk",
+    "*.bcf",
+    "*.run.xml",
+    "*.synctex.gz"
 ]
 ```
 
