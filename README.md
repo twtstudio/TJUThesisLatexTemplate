@@ -38,12 +38,12 @@ LaTeX 加本模板可以实现：
 ```latex
 销售商决策如式~\eqref{rcond}~所示：
 \begin{equation}
-\label{rcond}
-\left\{\begin{array}{l}
-p_{1s}=v_h-(v_h-p_2)\mathbb{E}(\varphi) \\
-p_{2s}=v_l \\
-q_s \in \underset{q \geq 0}{\mathrm{argmax}} \beta_R (q, p_1, p_2) \\
-\end{array}\right.
+    \label{rcond}
+    \left\{\begin{array}{l}
+        p_{1s}=v_h-(v_h-p_2)\mathbb{E}(\varphi)                            \\
+        p_{2s}=v_l                                                         \\
+        q_s \in \underset{q \geq 0}{\mathrm{argmax}} \beta_R (q, p_1, p_2) \\
+    \end{array}\right.
 \end{equation}
 ```
 
@@ -56,10 +56,10 @@ q_s \in \underset{q \geq 0}{\mathrm{argmax}} \beta_R (q, p_1, p_2) \\
 ```latex
 图像如图~\ref{fig:simuP1P2Result}~所示。
 \begin{figure}[htbp!]
-\centering
-\includegraphics[width=0.75\textwidth]{figures/p1p2figure.eps}
-\caption{最优$p_1, p_2$仿真结果}\label{fig:simuP1P2Result}
-\vspace{-1em}
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/p1p2figure.eps}
+    \caption{最优$p_1, p_2$仿真结果}\label{fig:simuP1P2Result}
+    \vspace{-1em}
 \end{figure}
 ```
 
@@ -67,27 +67,27 @@ q_s \in \underset{q \geq 0}{\mathrm{argmax}} \beta_R (q, p_1, p_2) \\
 
 ```latex
 \begin{table}[htbp]
-\caption{符合本科生毕业论文绘图规范的表格}\label{tab:table1}
-\vspace{0.5em}\centering\wuhao
-\begin{tabular}{ccccc}
-\toprule[1.5pt]
-$D$(in) & $P_u$(lbs) & $u_u$(in) & $\beta$ & $G_f$(psi.in)\\
-\midrule[1pt]
- 5 & 269.8 & 0.000674 & 1.79 & 0.04089\\
-10 & 421.0 & 0.001035 & 3.59 & 0.04089\\
-20 & 640.2 & 0.001565 & 7.18 & 0.04089\\
- 5 & 269.8 & 0.000674 & 1.79 & 0.04089\\
-10 & 421.0 & 0.001035 & 3.59 & 0.04089\\
-20 & 640.2 & 0.001565 & 7.18 & 0.04089\\
- 5 & 269.8 & 0.000674 & 1.79 & 0.04089\\
-10 & 421.0 & 0.001035 & 3.59 & 0.04089\\
-20 & 640.2 & 0.001565 & 7.18 & 0.04089\\
- 5 & 269.8 & 0.000674 & 1.79 & 0.04089\\
-10 & 421.0 & 0.001035 & 3.59 & 0.04089\\
-20 & 640.2 & 0.001565 & 7.18 & 0.04089\\
-\bottomrule[1.5pt]
-\end{tabular}
-\vspace{\baselineskip}
+    \caption{符合本科生毕业论文绘图规范的表格}\label{tab:table1}
+    \vspace{0.5em}\centering\wuhao
+    \begin{tabular}{ccccc}
+        \toprule[1.5pt]
+        $D$(in) & $P_u$(lbs) & $u_u$(in) & $\beta$ & $G_f$(psi.in) \\
+        \midrule[1pt]
+        5       & 269.8      & 0.000674  & 1.79    & 0.04089       \\
+        10      & 421.0      & 0.001035  & 3.59    & 0.04089       \\
+        20      & 640.2      & 0.001565  & 7.18    & 0.04089       \\
+        5       & 269.8      & 0.000674  & 1.79    & 0.04089       \\
+        10      & 421.0      & 0.001035  & 3.59    & 0.04089       \\
+        20      & 640.2      & 0.001565  & 7.18    & 0.04089       \\
+        5       & 269.8      & 0.000674  & 1.79    & 0.04089       \\
+        10      & 421.0      & 0.001035  & 3.59    & 0.04089       \\
+        20      & 640.2      & 0.001565  & 7.18    & 0.04089       \\
+        5       & 269.8      & 0.000674  & 1.79    & 0.04089       \\
+        10      & 421.0      & 0.001035  & 3.59    & 0.04089       \\
+        20      & 640.2      & 0.001565  & 7.18    & 0.04089       \\
+        \bottomrule[1.5pt]
+    \end{tabular}
+    \vspace{\baselineskip}
 \end{table}
 ```
 
@@ -121,10 +121,10 @@ $D$(in) & $P_u$(lbs) & $u_u$(in) & $\beta$ & $G_f$(psi.in)\\
 ## 编译
 
 ```bash
-xelatex tjumain.tex
-bibtex tjumain.tex
-xelatex tjumain.tex
-xelatex tjumain.tex
+xelatex tjumain
+bibtex tjumain
+xelatex tjumain
+xelatex tjumain
 ```
 
 注意：由于存在目录、参考文献和图表编号等，需要多次编译以保证顺序正确。
