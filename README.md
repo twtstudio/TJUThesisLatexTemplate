@@ -120,71 +120,14 @@ LaTeX 加本模板可以实现：
 
 ## 编译
 
-> - 以下编译操作都**需要用户进入 `tjumain.tex` 所在目录下**
-> - 有多种编译形式，本质都一样，选择某种自己喜欢的即可，欢迎补充。
+> - 编译操作**在 `tjumain.tex` 所在目录下进行**
+> - 以下编译方式任选其一即可
 
 ### 使用`Latexmk`编译
-
-#### 首先检查是否安装了`Latexmk`
-
-```bash
-latexmk -help
-```
-
-如果没有报错，正确打印了类似如下所示的帮助信息即说明`Latexmk`已在机器上安装。
-
-```
-Latexmk 4.67: Automatic LaTeX document generation routine
-
-Usage: latexmk [latexmk_options] [filename ...]
-
-  Latexmk_options:
-   -aux-directory=dir or -auxdir=dir
-                 - set name of directory for auxiliary files (aux, log)
-                 - Currently this only works with MiKTeX
-   -bibtex       - use bibtex when needed (default)
-   -bibtex-      - never use bibtex
-   -bibtex-cond  - use bibtex when needed, but only if the bib file exists
-   -bibtex-cond1 - use bibtex when needed, but only if the bib file exists;
-                   on cleanup delete bbl file only if bib file exists
-   -bm <message> - Print message across the page when converting to postscript
-   -bi <intensity> - Set contrast or intensity of banner
-   -bs <scale> - Set scale for banner
-   -commands  - list commands used by latexmk for processing files
-   -c     - clean up (remove) all nonessential files, except
-            dvi, ps and pdf files.
-            This and the other clean-ups are instead of a regular make.
-   -C     - clean up (remove) all nonessential files
-            including aux, dep, dvi, postscript and pdf files
-            and file of database of file information
-...
-```
-
-#### 使用`Latexmk`编译
 
 ```bash
 latexmk -pvc -xelatex -file-line-error -interaction=nonstopmode -synctex=1 tjumain.tex
 ```
-
-运行命令，`Latexmk`会使用 xelatex 引擎编译 `tjumain.tex` 文件，并在 PDF 阅读器中打开预览，并持续更新文件。当然，它也会监测文件保存动作，并自动重新编译。
-
-使用`Latexmk`应该可以做到只需运行一次，然后每次文件保存动作后，自动重新编译。
-
-#### 清理临时文件
-
-运行LaTeX之后，当前目录被大量临时文件污染；可以使用这个命令清理
-
-```bash
-latexmk -c
-```
-
-这不会删除`.pdf /.ps /.dvi`如果你想删除这些文件，使用
-
-```bash
-latexmk -C
-```
-
-_更多`Latexmk`命令参数及其含义可以查询help手册或者通过文档等其他方式了解。_
 
 ### 手动编译
 
@@ -199,11 +142,6 @@ xelatex tjumain.tex
 
 注意：由于存在目录、参考文献和图表编号等，需要多次编译以保证顺序正确。
 
-### 其他编译方式
-
-相信大家一定可以自己解决😉，非常欢迎在此分享。
-
-
 ## 清理缓存及日志
 
 ### Atom
@@ -213,6 +151,12 @@ xelatex tjumain.tex
 ### Visual Studio Code
 
 安装插件 `LaTeX Workshop`，提供 clean up
+
+### Latexmk
+
+```bash
+latexmk -c
+```
 
 ### 其他
 
