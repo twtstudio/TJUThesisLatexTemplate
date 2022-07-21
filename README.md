@@ -123,6 +123,10 @@ LaTeX 加本模板可以实现：
 > - 编译操作**在 `tjumain.tex` 所在目录下进行**
 > - 以下编译方式任选其一即可
 
+### Visual Studio Code
+
+在应用推荐工具链后，打开 `tjumain.tex`，执行 Ctrl + Alt + B；或点击左侧 TEX Tab 并单击 Build LaTeX project。
+
 ### 使用`Latexmk`编译
 
 ```bash
@@ -146,11 +150,11 @@ xelatex tjumain.tex
 
 ### Atom
 
-安装插件`language-latex`和`latex`，提供 Build 和 Clean 的功能。
+安装插件 `language-latex` 和 `latex`，提供 Build 和 Clean 的功能。
 
 ### Visual Studio Code
 
-安装插件 `LaTeX Workshop`，提供 clean up
+安装插件 `LaTeX Workshop`，提供 clean up。
 
 ### Latexmk
 
@@ -160,12 +164,7 @@ latexmk -c
 
 ### 其他
 
-也可使用 [@Halcao](https://github.com/Halcao) 提供的小脚本：
-
-* 打开终端
-* 拖入 `clean.sh` 执行
-
-如提示 Permission Denied，请使用 `chmod +x空格`，然后拖入 `clean.sh`，再次拖入 `clean.sh` 执行即可。
+也可使用 [@Halcao](https://github.com/Halcao) 提供的小脚本 `Thesis/clean.sh`。
 
 # 推荐工具链
 
@@ -183,70 +182,7 @@ latexmk -c
 	* Latex-cwl
 	* LatexWordCount
 
-注意：使用 VS Code 配合 LaTeX Workshop 插件，可能需要在 VS Code 设置中加入
-
-```js
-"latex-workshop.latex.tools": [
-    {
-        "name": "xelatex",
-        "command": "xelatex",
-        "args": [
-            "-synctex=1",
-            "-interaction=nonstopmode",
-            "-file-line-error",
-            "%DOCFILE%" // 将%DOC%替换成%DOCFILE%可以支持编译中文路径下的文件
-        ]
-    },
-    {
-        "name": "bibtex",
-        "command": "bibtex",
-        "args": [
-            "%DOCFILE%"
-        ]
-    }
-],
-"latex-workshop.latex.recipes": [
-    {
-        "name": "xelatex",
-        "tools": [
-            "xelatex"
-        ],
-    },
-    {
-        "name": "xe->bib->xe->xe", // 使用本模板推荐的编译链
-        "tools": [
-            "xelatex",
-            "bibtex",
-            "xelatex",
-            "xelatex"
-        ]
-    },
-],
-"latex-workshop.latex.clean.fileTypes": [ // 清除编译生成的中间文件
-    "*.aux",
-    "*.bbl",
-    "*.blg",
-    "*.idx",
-    "*.ind",
-    "*.lof",
-    "*.lot",
-    "*.out",
-    "*.toc",
-    "*.acn",
-    "*.acr",
-    "*.alg",
-    "*.glg",
-    "*.glo",
-    "*.gls",
-    "*.ist",
-    "*.fls",
-    "*.log",
-    "*.fdb_latexmk",
-    "*.bcf",
-    "*.run.xml",
-    "*.synctex.gz"
-]
-```
+注意：直接使用 VSCode 打开本项目可以自动获得推荐插件与设置。如需自行配置，可参考本项目下 [.vscode/settings.json](https://github.com/twtstudio/TJUThesisLatexTemplate/blob/master/.vscode/settings.json)。
 
 # 致谢
 
