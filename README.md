@@ -1,6 +1,6 @@
 # TJUThesisLatexTemplate
 
-Latex template for TJU thesis. Modified from [here](https://code.google.com/p/tjuthesis)
+Latex template for TJU thesis. Forked from [tjuthesis](https://code.google.com/p/tjuthesis).
 
 # 说明
 
