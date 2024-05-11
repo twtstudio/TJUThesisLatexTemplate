@@ -1,6 +1,14 @@
-# TJUThesisLatexTemplate
+# 2024 TJUThesisLatexTemplate
 
 Latex template for TJU thesis. Forked from [tjuthesis](https://code.google.com/p/tjuthesis).
+
+# Contributions
+
+- 添加了2024 届的新格式 (by "./1-1天津大学本科生毕业论文模板.docx")
+
+## TODO
+
+- [ ] “” 符号的左右空格问题
 
 # 说明
 
@@ -8,18 +16,18 @@ Latex template for TJU thesis. Forked from [tjuthesis](https://code.google.com/p
 
 # 为何使用 LaTeX
 
-在刚刚结束的毕业设计撰写中，很多使用 Word 的同学在写作过程中出现大量难以解决的格式问题，非常蛋疼。LaTeX 虽然学习曲线较为陡峭，但花费一个小时左右时间熟悉后即可完全专注于内容撰写而无需操心任何格式问题。本模版即旨在你只需复制粘贴修改具体内容即可作出 __完全__ 符合天大现行规范的毕业设计。
+在刚刚结束的毕业设计撰写中，很多使用 Word 的同学在写作过程中出现大量难以解决的格式问题，非常蛋疼。LaTeX 虽然学习曲线较为陡峭，但花费一个小时左右时间熟悉后即可完全专注于内容撰写而无需操心任何格式问题。本模版即旨在你只需复制粘贴修改具体内容即可作出 **完全** 符合天大现行规范的毕业设计。
 
 LaTeX 加本模板可以实现：
 
-* 无比优雅的数学公式
-* 章节的自动标号
-* 公式的自动标号
-* 插图的自动标号
-* 表格的自动标号
-* 目录的自动生成
-* 参考文献和标引的自动标号
-* __所有格式的自动正确__
+- 无比优雅的数学公式
+- 章节的自动标号
+- 公式的自动标号
+- 插图的自动标号
+- 表格的自动标号
+- 目录的自动生成
+- 参考文献和标引的自动标号
+- **所有格式的自动正确**
 
 # 如何使用本模板
 
@@ -95,12 +103,12 @@ LaTeX 加本模板可以实现：
 
 所有参考文献在 `Thesis/references/reference.bib` 中。BibTex 格式的参考文献可通过以下步骤获得：
 
-* 打开浏览器，访问 [Google Scholar](http://scholar.google.com)
-* 查找你所需的文献
-* 点击文献下方 引用/cite 按钮
-* 在弹出框内点击 BibTex
-* 复制新窗口里的文本粘贴到 reference.bib 中
-* 在 body.tex 中需要引用的地方使用`\cite{}`命令进行引用，括号里填参考文献第一行左花括号后面的 identifier。如使用下面推荐的工具链可以实现参考文献自动补全
+- 打开浏览器，访问 [Google Scholar](http://scholar.google.com)
+- 查找你所需的文献
+- 点击文献下方 引用/cite 按钮
+- 在弹出框内点击 BibTex
+- 复制新窗口里的文本粘贴到 reference.bib 中
+- 在 body.tex 中需要引用的地方使用`\cite{}`命令进行引用，括号里填参考文献第一行左花括号后面的 identifier。如使用下面推荐的工具链可以实现参考文献自动补全
 
 ## 目录，字体，字号，编号，序号，页码，页眉，排版...
 
@@ -112,11 +120,11 @@ LaTeX 加本模板可以实现：
 
 ## 魔改内容
 
-* 天大 logo 更新及矢量校名
-* 移除 CJK，使用 ctex
-* 根据现行本科生毕业论文规范修改格式
-* 适应 macOS, Windows 与 xelatex
-* 为适应我推荐的工具链做了一些优化
+- 天大 logo 更新及矢量校名
+- 移除 CJK，使用 ctex
+- 根据现行本科生毕业论文规范修改格式
+- 适应 macOS, Windows 与 xelatex
+- 为适应我推荐的工具链做了一些优化
 
 ## 编译
 
@@ -168,19 +176,19 @@ latexmk -c
 
 # 推荐工具链
 
-* 发行版
-    * macOS: MacTex
-    * Windows: TeX Live
-* Visual Studio Code
-	* LaTeX Workshop
-* Atom
-	* language-latex
-	* latexer
-    * latextools
-* Sublime Text 3
-	* LatexTools
-	* Latex-cwl
-	* LatexWordCount
+- 发行版
+  - macOS: MacTex
+  - Windows: TeX Live
+- Visual Studio Code
+  - LaTeX Workshop
+- Atom
+  - language-latex
+  - latexer
+    - latextools
+- Sublime Text 3
+  - LatexTools
+  - Latex-cwl
+  - LatexWordCount
 
 注意：直接使用 VSCode 打开本项目可以自动获得推荐插件与设置。如需自行配置，可参考本项目下 [.vscode/settings.json](https://github.com/twtstudio/TJUThesisLatexTemplate/blob/master/.vscode/settings.json)。
 
@@ -188,8 +196,8 @@ latexmk -c
 
 tjuthesis 的原作者们作出了前人栽树的不可磨灭的贡献：
 
-* 张井 天津大学2010级管理与经济学部信息管理与信息系统专业硕士生
-* 余蓝涛 天津大学2008级精密仪器与光电子工程学院测控技术与仪器专业本科生
+- 张井 天津大学2010级管理与经济学部信息管理与信息系统专业硕士生
+- 余蓝涛 天津大学2008级精密仪器与光电子工程学院测控技术与仪器专业本科生
 
 以及北京大学孟祥溪院士，膜。
 
