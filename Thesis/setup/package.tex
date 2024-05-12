@@ -4,13 +4,26 @@
 
 %%%%%%%%%% Package %%%%%%%%%%%%
 \usepackage{CJK}
+\usepackage{setspace}
+\usepackage{etoolbox}                       % patch: 进行hack
 \usepackage{lmodern}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}                       % 支持插图处理
-\usepackage[a4paper,text={146.4true mm,239.2 true mm},top= 26.2true mm,left=31.8 true mm,head=6true mm,headsep=6.5true mm,foot=16.5true mm]{geometry}
-                                            % 支持版面尺寸设置
+% \usepackage[a4paper,text={146.4true mm,239.2 true mm},top= 26.2true mm,left=31.8 true mm,head=6true mm,headsep=6.5true mm,foot=16.5true mm]{geometry}
+%
+% 设置页面边距
+\usepackage[a4paper,
+top=27.5true mm, % 顶部边距
+bottom=25.4true mm, % 底部边距
+left=35.7true mm, % 左侧边距
+right=27.7true mm, % 右侧边距
+headheight=15true mm, % 页眉高度
+% headsep=15true mm, % 页眉距顶部边界的距离
+headsep=5true mm, % 页眉距顶部边界的距离
+footskip=17.5true mm % 页脚距底部边界的距离
+]{geometry}
+% 支持版面尺寸设置
 \usepackage[squaren]{SIunits}               % 支持国际标准单位
-
 \usepackage{titlesec}                       % 控制标题的宏包
 \usepackage{titletoc}                       % 控制目录的宏包
 \usepackage{fancyhdr}                       % fancyhdr宏包 支持页眉和页脚的相关定义
@@ -24,8 +37,9 @@
 \usepackage{booktabs}                       % 表格，横的粗线；\specialrule{1pt}{0pt}{0pt}
 \usepackage{longtable}                      % 支持跨页的表格。
 \usepackage{tabularx}                       % 自动设置表格的列宽
-\usepackage{subfigure}                      % 支持子图 %centerlast 设置最后一行是否居中
-\usepackage[subfigure]{ccaption}            % 支持子图的中文标题
+% \usepackage{subfigure}                      % 支持子图 %centerlast 设置最后一行是否居中
+\usepackage{ccaption}            % 支持子图的中文标题
+\usepackage{subfig}
 \usepackage[sort&compress,numbers]{natbib}  % 支持引用缩写的宏包
 \usepackage{enumitem}                       % 使用enumitem宏包,改变列表项的格式
 \usepackage{calc}                           % 长度可以用+ - * / 进行计算
@@ -35,45 +49,49 @@
 \usepackage{CJKnumb}                        % 提供将阿拉伯数字转换成中文数字的命令
 \usepackage{indentfirst}                    % 首行缩进宏包
 \usepackage{CJKutf8}                        % 用在UTF8编码环境下，它可以自动调用CJK，同时针对UTF8编码作了设置
+\usepackage{xeCJK}
 %\usepackage{hypbmsec}                      % 用来控制书签中标题显示内容
-\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+\newcommand{\tabincell}[2]{\begin{tabulngar}{@{}#1@{}}#2\end{tabular}}
 \usepackage{xcolor}
 %支持代码环境
 \usepackage{listings}
 \lstset{numbers=left,
-language=[ANSI]{C},
-numberstyle=\tiny,
-extendedchars=false,
-showstringspaces=false,
-breakatwhitespace=false,
-breaklines=true,
-captionpos=b,
-keywordstyle=\color{blue!70},
-commentstyle=\color{red!50!green!50!blue!50},
-frame=shadowbox,
-rulesepcolor=\color{red!20!green!20!blue!20}
+  language=[ANSI]{C},
+  numberstyle=\tiny,
+  extendedchars=false,
+  showstringspaces=false,
+  breakatwhitespace=false,
+  breaklines=true,
+  captionpos=b,
+  keywordstyle=\color{blue!70},
+  commentstyle=\color{red!50!green!50!blue!50},
+  frame=shadowbox,
+  rulesepcolor=\color{red!20!green!20!blue!20}
 }
 %支持算法环境
 \usepackage[boxed,ruled,lined]{algorithm2e}
 \usepackage{algorithmic}
 
+
 \usepackage{array}
+\renewcommand{\arraystretch}{1.5} % 调整行间距为默认的1.5倍
+
 \newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
 \newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
 \newcolumntype{R}[1]{>{\PreserveBackslash\raggedleft}p{#1}}
 \newcolumntype{L}[1]{>{\PreserveBackslash\raggedright}p{#1}}
 
 \def\atemp{xelatex}\ifx\atemp\usewhat
-\usepackage[unicode,
-            pdfstartview=FitH,
-            bookmarksnumbered=true,
-            bookmarksopen=true,
-            colorlinks=false,
-            pdfborder={0 0 1},
-            citecolor=blue,
-            linkcolor=red,
-            anchorcolor=green,
-            urlcolor=blue,
-            breaklinks=true
-            ]{hyperref}
+  \usepackage[unicode,
+  pdfstartview=FitH,
+  bookmarksnumbered=true,
+  bookmarksopen=true,
+  colorlinks=false,
+  pdfborder={0 0 1},
+  citecolor=blue,
+  linkcolor=red,
+  anchorcolor=green,
+  urlcolor=blue,
+  breaklinks=true
+  ]{hyperref}
 \fi
