@@ -1,5 +1,5 @@
-name: Build LaTeX document
-on: [push, pull_request]
+name: Test Build LaTeX Document
+on: [pull_request]
 jobs:
   build_latex:
     runs-on: ubuntu-latest
@@ -12,5 +12,3 @@ jobs:
           working_directory: Thesis
           root_file: tjumain.tex
           args: -xelatex -latexoption=-file-line-error -latexoption=-interaction=nonstopmode
-      - name: debug and print tree
-        run: tree
