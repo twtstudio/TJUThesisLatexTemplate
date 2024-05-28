@@ -40,7 +40,8 @@ footskip=17.5true mm % 页脚距底部边界的距离
 \usepackage{tabularx}                       % 自动设置表格的列宽
 % \usepackage{subfigure}                      % 支持子图 %centerlast 设置最后一行是否居中
 \usepackage{ccaption}            % 支持子图的中文标题
-\usepackage{subfig}
+% \usepackage{subfig}
+\usepackage{subcaption}                     % 用于子图和子标题 (subfigure和subfig已经obsolete)
 \usepackage[sort&compress,numbers]{natbib}  % 支持引用缩写的宏包
 \usepackage{enumitem}                       % 使用enumitem宏包,改变列表项的格式
 \usepackage{calc}                           % 长度可以用+ - * / 进行计算
@@ -79,6 +80,8 @@ footskip=17.5true mm % 页脚距底部边界的距离
 
 \usepackage{array}
 \renewcommand{\arraystretch}{1.5} % 调整行间距为默认的1.5倍
+
+\usepackage{pdfpages}
 
 \newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
 \newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
