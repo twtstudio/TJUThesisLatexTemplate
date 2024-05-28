@@ -1,5 +1,7 @@
 # 2024 TJUThesisLatexTemplate
 
+[![preview](https://img.shields.io/badge/Preview%20pdf-EF3939?style=for-the-badge&logo=adobeacrobatreader&logoColor=white&color=black&labelColor=ec1c24)](https://twtstudio.github.io/TJUThesisLatexTemplate/)
+
 Latex template for TJU thesis. Forked from [tjuthesis](https://code.google.com/p/tjuthesis).
 
 # Contributions
