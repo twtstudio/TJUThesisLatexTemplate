@@ -1,0 +1,16 @@
+name: Build LaTeX document
+on: [push, pull_request]
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+      - name: Compile LaTeX document
+        uses: dante-ev/latex-action@latest
+        with:
+          working_directory: Thesis
+          root_file: tjumain.tex
+          args: -xelatex -latexoption=-file-line-error -latexoption=-interaction=nonstopmode
+      - name: debug and print tree
+        run: tree
