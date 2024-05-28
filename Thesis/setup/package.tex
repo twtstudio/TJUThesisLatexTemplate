@@ -30,6 +30,7 @@ footskip=17.5true mm % 页脚距底部边界的距离
 %\usepackage{ctex}                     % 支持中文显示
 \usepackage{CJKpunct}                       % 精细调整中文的标点符号
 \usepackage{color}                          % 支持彩色
+\usepackage{mathtools}
 \usepackage{amsmath}                        % AMSLaTeX宏包 用来排出更加漂亮的公式
 \usepackage{amssymb}                        % 数学符号生成命令
 \usepackage[below]{placeins}    %允许上一个section的浮动图形出现在下一个section的开始部分,还提供\FloatBarrier命令,使所有未处理的浮动图形立即被处理
@@ -43,9 +44,10 @@ footskip=17.5true mm % 页脚距底部边界的距离
 \usepackage[sort&compress,numbers]{natbib}  % 支持引用缩写的宏包
 \usepackage{enumitem}                       % 使用enumitem宏包,改变列表项的格式
 \usepackage{calc}                           % 长度可以用+ - * / 进行计算
-\usepackage{txfonts}                        % 字体宏包
+\usepackage{newtxtext}                      % 用newtxtext宏包替代txfonts
+% \usepackage{txfonts}                        % 字体宏包
 \usepackage{bm}                             % 处理数学公式中的黑斜体的宏包
-\usepackage[amsmath,thmmarks,hyperref]{ntheorem}  % 定理类环境宏包，其中 amsmath 选项用来兼容 AMS LaTeX 的宏包
+\usepackage[amsmath,thmmarks,hyperref]{ntheorem}  % xxx 定理类环境宏包，其中 amsmath 选项用来兼容 AMS LaTeX 的宏包
 \usepackage{CJKnumb}                        % 提供将阿拉伯数字转换成中文数字的命令
 \usepackage{indentfirst}                    % 首行缩进宏包
 \usepackage{CJKutf8}                        % 用在UTF8编码环境下，它可以自动调用CJK，同时针对UTF8编码作了设置
@@ -69,9 +71,11 @@ footskip=17.5true mm % 页脚距底部边界的距离
   rulesepcolor=\color{red!20!green!20!blue!20}
 }
 %支持算法环境
-\usepackage[boxed,ruled,lined]{algorithm2e}
-\usepackage{algorithmic}
-
+% \usepackage[boxed,ruled,lined]{algorithm2e}
+% \usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{algorithmicx}  % 更好的算法包
+\usepackage{algpseudocode}
 
 \usepackage{array}
 \renewcommand{\arraystretch}{1.5} % 调整行间距为默认的1.5倍
@@ -86,12 +90,12 @@ footskip=17.5true mm % 页脚距底部边界的距离
   pdfstartview=FitH,
   bookmarksnumbered=true,
   bookmarksopen=true,
-  colorlinks=false,
+  colorlinks=true, %false,
   pdfborder={0 0 1},
-  citecolor=blue,
-  linkcolor=red,
+  citecolor=black, %blue,
+  linkcolor=black, %red,
   anchorcolor=green,
-  urlcolor=blue,
+  urlcolor=black, %blue,
   breaklinks=true
   ]{hyperref}
 \fi
